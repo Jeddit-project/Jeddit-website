@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md">
+  <a routerLink="/" class="navbar-brand" id="logo">
+    <img height="30px" src="../../../assets/logo-small.svg">
+  </a>
+
+  <div ngbDropdown class="d-inline-block">
+
+    <button ngbDropdownToggle class="btn" id="subjeddit-toggle">
+      <div [ngSwitch]="location.pathname">
+        <div *ngSwitchCase="'/'"><i class="fas fa-home"></i>Home</div>
+        <div *ngSwitchCase="'/popular'"><i class="fas fa-fire"></i>Popular</div>
+        <div *ngSwitchCase="'/all'"><i class="fas fa-globe"></i>All</div>
+        <div *ngSwitchCase="'/all'">Unknown location</div>
+      </div>
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="subjeddit-dropdown" class="options">
+
+      <div class="dropdown-header">Jeddit Feeds</div>
+      <button class="dropdown-item"><i class="fas fa-home"></i>Home</button>
+      <button class="dropdown-item"><i class="fas fa-fire"></i>Popular</button>
+      <button class="dropdown-item"><i class="fas fa-globe"></i>All</button>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="dropdown-header">Subscriptions</div>
+      <button class="dropdown-item"
+        *ngFor="let subjeddit of subjeddits | async">r/{{ subjeddit.name }}</button>
+
+      <div class="dropdown-divider"></div>
+
+      <div class="dropdown-header">Other</div>
+      <button class="dropdown-item"><i class="fas fa-cog"></i>User Settings</button>
+      <button class="dropdown-item"><i class="fas fa-pen"></i>Create Post</button>
+
+    </div>
+  </div>
+
+  <input type="text" id="search-bar" class="form-control" placeholder="Search Jeddit">
+
+  <div ngbDropdown class="d-inline-block">
+
+    <button ngbDropdownToggle class="btn" id="profile-toggle">
+      <!--<div id="profile-container">-->
+      <i class="fas fa-user"></i>Rosca Alex
+      <!--</div>-->
+
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="subjeddit-dropdown" class="options">
+
+      <div class="dropdown-header">My Stuff</div>
+      <button class="dropdown-item"><i class="fas fa-user-circle"></i>My profile</button>
+      <button class="dropdown-item"><i class="fas fa-cog"></i>User Settings</button>
+
+    </div>
+  </div>
+
+
+
+</nav>

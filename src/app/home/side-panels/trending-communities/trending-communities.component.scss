@@ -1,0 +1,56 @@
+.panel {
+  display: block;
+  width: 320px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+
+  overflow: hidden;
+  padding: 10px;
+  margin-top: 15px;
+
+  .title {
+    font-size: 0.9em;
+    font-variant: all-small-caps;
+    font-weight: bold;
+  }
+
+  .list-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .subjeddit-logo {
+      $scale: 32px;
+
+      width: $scale;
+      height: $scale;
+      background-color: #24a0ed;
+      //border: 1px solid black;
+      border-radius: 100%;
+
+      padding: 3px;
+      margin-right: 10px;
+    }
+
+    .subjeddit-info {
+      //width: 170px;
+      margin-right: auto;
+      font-size: 0.7em;
+
+      .subjeddit-name {
+        line-height: 16px;
+      }
+
+      .subjeddit-subscribers {
+        line-height: 12px;
+      }
+    }
+
+    button {
+      font-variant: all-small-caps;
+      font-weight: bold;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+  }
+}

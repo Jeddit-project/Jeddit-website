@@ -1,0 +1,37 @@
+.panel {
+  display: block;
+  width: 320px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
+  margin-top: 15px; }
+  .panel .title {
+    font-size: 0.9em;
+    font-variant: all-small-caps;
+    font-weight: bold; }
+  .panel .list-item {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    .panel .list-item .subjeddit-logo {
+      width: 32px;
+      height: 32px;
+      background-color: #24a0ed;
+      border-radius: 100%;
+      padding: 3px;
+      margin-right: 10px; }
+    .panel .list-item .subjeddit-info {
+      margin-right: auto;
+      font-size: 0.7em; }
+      .panel .list-item .subjeddit-info .subjeddit-name {
+        line-height: 16px; }
+      .panel .list-item .subjeddit-info .subjeddit-subscribers {
+        line-height: 12px; }
+    .panel .list-item button {
+      font-variant: all-small-caps;
+      font-weight: bold;
+      padding-top: 3px;
+      padding-bottom: 3px; }
+
+/*# sourceMappingURL=trending-communities.component.css.map */
