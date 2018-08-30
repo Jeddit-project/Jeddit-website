@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 
 
-class User {
+class Poster {
   id: number;
   name: string;
 }
@@ -16,7 +16,7 @@ class Subjeddit {
 export class Post {
   id: number;
   subjeddit: Subjeddit;
-  user: User;
+  poster: Poster;
   time: number;
 
   title: string;
@@ -35,7 +35,7 @@ const mockPosts: Post[] = [
       name: 'Terraria',
       image_url: '/assets/terraria-subjeddit-logo.png'
     },
-    user: {
+    poster: {
       id: 2,
       name: 'AutoModerator'
     },
