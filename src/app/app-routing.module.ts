@@ -2,12 +2,17 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import {HomeComponent} from './home/home.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {PostComponent} from './dashboard/post/post.component';
+import {HomeComponent} from './dashboard/home/home.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: DashboardComponent, children: [
+      {path: '', component: HomeComponent},
+      {path: 'r/:subjeddit', component: PostComponent}
+    ]},
 
 ];
 

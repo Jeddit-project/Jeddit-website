@@ -24,6 +24,20 @@
 
   .fa-caret-up, .fa-caret-down {
     font-size: 2em;
+    color: #878a8c;
+  }
+
+  .fa-caret-up {
+    margin-bottom: -5px;
+  }
+
+  .fa-caret-down{
+    margin-top: -5px;
+  }
+
+  .points {
+    font-size: 0.8em;
+    font-weight: bold;
   }
 }
 

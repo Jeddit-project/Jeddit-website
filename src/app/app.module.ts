@@ -7,10 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
-import { NavbarComponent } from './home/navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { UserFeedComponent } from './home/user-feed/user-feed.component';
-import { TrendingCommunitiesComponent } from './home/side-panels/trending-communities/trending-communities.component';
+import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserFeedComponent } from './dashboard/home/user-feed/user-feed.component';
+import { TrendingCommunitiesComponent } from './dashboard/home/side-panels/trending-communities/trending-communities.component';
+import { HomeComponent } from './dashboard/home/home.component';
+import { PostComponent } from './dashboard/post/post.component';
+import { ArticleComponent } from './dashboard/post/article/article.component';
+import { AboutComponent } from './dashboard/post/side-panels/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +22,13 @@ import { TrendingCommunitiesComponent } from './home/side-panels/trending-commun
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    HomeComponent,
+    DashboardComponent,
     UserFeedComponent,
     TrendingCommunitiesComponent,
+    HomeComponent,
+    PostComponent,
+    ArticleComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

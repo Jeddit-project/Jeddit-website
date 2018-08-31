@@ -1,0 +1,56 @@
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #2e2f2f; }
+
+.root .content {
+  width: calc(100% - 320px);
+  margin: 0 auto; }
+  .root .content .top {
+    position: fixed;
+    width: inherit;
+    height: 50px;
+    background-color: #030303;
+    align-items: center; }
+    .root .content .top .top-left {
+      align-items: center;
+      color: #878a8c; }
+      .root .content .top .top-left .points, .root .content .top .top-left .top-title {
+        color: #d7dadc; }
+      .root .content .top .top-left [class*="fa fa-"] {
+        margin-left: 10px;
+        margin-right: 10px; }
+      .root .content .top .top-left .top-title {
+        margin-left: 15px;
+        overflow-wrap: break-word;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden; }
+    .root .content .top .top-right {
+      margin-left: 350px; }
+      .root .content .top .top-right .close-btn {
+        padding: 0;
+        padding-left: 7px;
+        padding-right: 7px;
+        border: 0 black;
+        color: #818384;
+        font-variant: all-small-caps;
+        font-weight: bold; }
+        .root .content .top .top-right .close-btn [class*="fa fa-"] {
+          margin-right: 5px; }
+  .root .content .bottom {
+    padding-top: 50px;
+    background-color: #dae0e6; }
+    .root .content .bottom a {
+      display: block; }
+
+hr {
+  background-color: #878a8c;
+  width: 1px;
+  height: 15px; }
+
+/*# sourceMappingURL=post.component.css.map */

@@ -27,7 +27,7 @@ export class Post {
 }
 
 
-const mockPosts: Post[] = [
+let mockPosts: Post[] = [
   {
     id: 0,
     subjeddit: {
@@ -57,7 +57,31 @@ const mockPosts: Post[] = [
 })
 export class UserFeedService {
 
-  constructor() { }
+  constructor() {
+    // for (const i of [1, 2, 3, 4, 5, 6, 8, 7, 9, 0]) {
+    //   mockPosts.push({
+    //     id: 0,
+    //     subjeddit: {
+    //       id: 1,
+    //       name: 'Terraria',
+    //       image_url: '/assets/terraria-subjeddit-logo.png'
+    //     },
+    //     poster: {
+    //       id: 2,
+    //       name: 'AutoModerator'
+    //     },
+    //     title: 'Weekly Questions Thread 08/25/2018',
+    //     time: 1535624703,
+    //     text_content: 'Welcome to the Weekly Questions Thread! Feel free to ask questions such as help with the game, ' +
+    //     'build advice, issues with the game, or whatever Terraria related questions you have. If you are able to help ' +
+    //     'out your fellow Terrarians, feel free to lend your assistance! Please remember to include any relevant ' +
+    //     'information when asking your questions.\n' +
+    //     'Remember to check the sidebar for general links! Additional game information available in the wiki.',
+    //     points: 9001,
+    //     comments: 34
+    //   });
+    // }
+  }
 
   fetchFeedList(): Observable<Post[]> {
     return of(mockPosts)

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Post, UserFeedService} from '../../services/user-feed.service';
+import {Post, UserFeedService} from '../../../services/user-feed.service';
 
 @Component({
   selector: 'app-user-feed',

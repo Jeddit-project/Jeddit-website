@@ -1,0 +1,28 @@
+<div class="root" (click)="goBack($event)">
+  <div class="bg"></div>
+
+  <div class="content">
+    <div class="top  d-flex flex-row justify-content-center">
+
+      <div class="top-left  d-flex flex-row">
+        <hr>
+        <i class="fas fa-arrow-up"></i>
+        <div class="points">9001</div>
+        <i class="fas fa-arrow-down"></i>
+        <hr>
+        <span class="top-title">What is the state of Kotlin/Native cross-platform mobile development (Android and iOS)?</span>
+      </div>
+
+      <div class="top-right  d-flex flex-row">
+        <button ngbButton (click)="goBack($event)" class="close-btn btn btn-outline-dark"><i class="fas fa-times"></i>Close</button>
+      </div>
+
+    </div>
+
+    <div class="bottom  d-flex">
+      <app-article></app-article>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
