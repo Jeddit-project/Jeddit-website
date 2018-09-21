@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md">
   <a routerLink="/" class="navbar-brand" id="logo">
-    <img height="30px" src="../../../assets/logo-small.svg">
+    <img height="30px" src="../../../assets/img/logo-small.svg">
   </a>
 
   <div ngbDropdown class="d-inline-block">
@@ -17,14 +17,14 @@
     <div ngbDropdownMenu aria-labelledby="subjeddit-dropdown" class="options">
 
       <div class="dropdown-header">Jeddit Feeds</div>
-      <button class="dropdown-item"><i class="fas fa-home"></i>Home</button>
+      <button routerLink="/" class="dropdown-item"><i class="fas fa-home"></i>Home</button>
       <button class="dropdown-item"><i class="fas fa-fire"></i>Popular</button>
       <button class="dropdown-item"><i class="fas fa-globe"></i>All</button>
 
       <div class="dropdown-divider"></div>
 
       <div class="dropdown-header">Subscriptions</div>
-      <button class="dropdown-item"
+      <button class="dropdown-item" routerLink="/r/{{ subjeddit.name }}"
         *ngFor="let subjeddit of subjeddits | async">r/{{ subjeddit.name }}</button>
 
       <div class="dropdown-divider"></div>

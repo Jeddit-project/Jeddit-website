@@ -1,4 +1,4 @@
-<div *ngFor="let post of feedList | async" class="post d-flex" routerLink="r/da">
+<div *ngFor="let post of feedList | async" class="post d-flex" routerLink="r/Terraria" (click)="selectPost(post)">
 
   <div class="left d-flex flex-column align-items-center">
     <i class="fas fa-caret-up"></i>
@@ -9,13 +9,13 @@
   <div class="right d-flex flex-column">
 
     <div class="origin d-flex align-items-center">
-      <img class="subjeddit-logo" src="/assets/terraria-subjeddit-logo.png">
+      <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
       <div class="subjeddit-name">r/{{ post.subjeddit.name }}</div>
-      <div class="posted-by">Posted by <a href="">u/{{ post.poster.name }}</a> {{ post.time }}</div>
+      <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.time }}</div>
     </div>
 
     <p class="title">{{ post.title }}</p>
-    <div class="content">{{ post.text_content }}</div>
+    <div class="content">{{ post.text }}</div>
 
     <div class="interactions d-flex">
       <button ngbButton class="btn btn-light" href=""><i class="fas fa-comment-alt"></i>{{ post.comments }} Comments</button>

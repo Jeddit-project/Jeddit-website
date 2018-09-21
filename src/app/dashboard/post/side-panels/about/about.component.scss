@@ -1,0 +1,82 @@
+.panel {
+  display: block;
+  width: 320px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+
+  overflow: hidden;
+  margin-top: 15px;
+
+  .stripe {
+    height: 30px;
+    background-color: #0079d3;
+  }
+
+  .content {
+    padding: 15px;
+
+    .subjeddit-logo {
+      display: inline;
+      $scale: 32px;
+
+      width: $scale;
+      height: $scale;
+      background-color: #24a0ed;
+      border-radius: 100%;
+
+      //padding: 3px;
+      margin-right: 10px;
+    }
+
+    .subjeddit-name {
+      font-weight: bold;
+    }
+
+    .stats {
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      .subscribers, .online {
+        line-height: 20px;
+        font-weight: bold;
+      }
+
+      .label {
+        font-size: 0.8em;
+      }
+
+      .separator {
+        width: 1px;
+        height: 40px;
+        margin-right: 10px;
+        margin-left: -10px;
+
+        background-color: #eeeeef;
+      }
+
+      [class*="item-"] {
+        margin-right: auto;
+      }
+    }
+
+    .buttons {
+      margin-top: 10px;
+
+      button {
+        width: 100%;
+
+        &:first-child {
+          margin-bottom: 10px;
+        }
+
+        font-variant: all-small-caps;
+        font-weight: bold;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        //padding-left: auto;
+        //padding-right: auto;
+      }
+    }
+  }
+}

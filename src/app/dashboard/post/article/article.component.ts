@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserFeedService} from '../../../services/user-feed.service';
 
 @Component({
   selector: 'app-article',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userFeedService: UserFeedService) { }
 
   ngOnInit() {
   }

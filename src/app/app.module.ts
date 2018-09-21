@@ -15,6 +15,8 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { ArticleComponent } from './dashboard/post/article/article.component';
 import { AboutComponent } from './dashboard/post/side-panels/about/about.component';
+import { RulesComponent } from './dashboard/post/side-panels/rules/rules.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { AboutComponent } from './dashboard/post/side-panels/about/about.compone
     PostComponent,
     ArticleComponent,
     AboutComponent,
+    RulesComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,50 @@
+.panel {
+  display: block;
+  width: 320px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 15px; }
+  .panel .stripe {
+    height: 30px;
+    background-color: #0079d3; }
+  .panel .content {
+    padding: 15px; }
+    .panel .content .subjeddit-logo {
+      display: inline;
+      width: 32px;
+      height: 32px;
+      background-color: #24a0ed;
+      border-radius: 100%;
+      margin-right: 10px; }
+    .panel .content .subjeddit-name {
+      font-weight: bold; }
+    .panel .content .stats {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+      .panel .content .stats .subscribers, .panel .content .stats .online {
+        line-height: 20px;
+        font-weight: bold; }
+      .panel .content .stats .label {
+        font-size: 0.8em; }
+      .panel .content .stats .separator {
+        width: 1px;
+        height: 40px;
+        margin-right: 10px;
+        margin-left: -10px;
+        background-color: #eeeeef; }
+      .panel .content .stats [class*="item-"] {
+        margin-right: auto; }
+    .panel .content .buttons {
+      margin-top: 10px; }
+      .panel .content .buttons button {
+        width: 100%;
+        font-variant: all-small-caps;
+        font-weight: bold;
+        padding-top: 3px;
+        padding-bottom: 3px; }
+        .panel .content .buttons button:first-child {
+          margin-bottom: 10px; }
+
+/*# sourceMappingURL=about.component.css.map */

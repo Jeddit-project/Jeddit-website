@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
+import {UserFeedService} from '../../services/user-feed.service';
 
 @Component({
   selector: 'app-post',
@@ -8,7 +9,7 @@ import {Location} from '@angular/common';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, public userFeedService: UserFeedService) { }
 
   ngOnInit() {
   }

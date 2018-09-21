@@ -1,3 +1,32 @@
-<p>
-  about works!
-</p>
+<div class="panel" *ngIf="info">
+  <div class="stripe"></div>
+
+  <div class="content">
+    <div class="d-flex flex-row align-items-center">
+      <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
+      <div class="subjeddit-name">r/{{ info.name }}</div>
+    </div>
+
+    <div class="stats  d-flex flex-row align-items-center">
+      <div class="item-subscribers">
+        <div class="subscribers">{{ info.subscribers }}</div>
+        <div class="label">Subscribers</div>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="item-online">
+        <div class="online">???</div>
+        <div class="label">Online</div>
+      </div>
+    </div>
+
+    <div class="description">{{ info.description }}</div>
+
+    <div class="buttons">
+      <button ngbButton class="btn btn-primary align-self-end">Subscribe</button>
+      <button ngbButton class="btn btn-primary align-self-end">Create Post</button>
+    </div>
+
+  </div>
+</div>

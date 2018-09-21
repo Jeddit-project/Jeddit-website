@@ -1,4 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+
+class SubjedditInfo {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  subscribers: string;
+}
+
 
 @Component({
   selector: 'app-about',
@@ -6,10 +17,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  @Input() subjedditId: number;
 
-  constructor() { }
+  info: SubjedditInfo;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<SubjedditInfo>(`http://localhost:8080/api/subjeddit/${this.subjedditId}/info`).subscribe(
+      value => this.info = value
+    )
   }
 
 }
