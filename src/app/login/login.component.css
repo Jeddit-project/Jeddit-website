@@ -1,5 +1,5 @@
 .container-fluid {
-  background-image: url("/assets/login-bg.png"); }
+  background-image: url("/assets/img/login-bg.png"); }
 
 html, body, .container-fluid, .row {
   margin: 0;
@@ -15,6 +15,10 @@ html, body, .container-fluid, .row {
 
 .subjeddit-logo {
   margin: 20px; }
+
+.incorrect {
+  text-align: center;
+  margin-top: 20px; }
 
 .log-in-instead {
   margin-top: 10px;

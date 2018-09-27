@@ -1,0 +1,55 @@
+.root {
+  display: flex;
+  flex-direction: row; }
+  .root .left, .root .right {
+    display: flex;
+    flex-direction: column; }
+  .root .left {
+    align-items: center;
+    padding: 5px; }
+    .root .left .fa-arrow-up, .root .left .fa-arrow-down {
+      color: #878a8c; }
+    .root .left .fa-arrow-down {
+      margin-top: 5px;
+      margin-bottom: 5px; }
+    .root .left .line-container {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      width: 20px;
+      height: 100%; }
+      .root .left .line-container .line {
+        width: 2px;
+        height: 100%;
+        background-color: #edeff1; }
+      .root .left .line-container:hover .line {
+        background-color: gray; }
+    .root .left .expand-container {
+      cursor: pointer;
+      font-size: 0.75em; }
+  .root .right {
+    padding: 0 5px; }
+    .root .right .info {
+      font-size: 0.75em; }
+      .root .right .info .username {
+        color: #61a31b; }
+      .root .right .info .points, .root .right .info .time {
+        color: #7c7c7c; }
+    .root .right .text {
+      margin-top: 5px;
+      margin-bottom: 5px; }
+    .root .right .actions > * {
+      margin-right: 10px;
+      font-size: 0.8em;
+      font-weight: bold;
+      color: #878a8c; }
+      .root .right .actions > *:hover {
+        text-decoration: underline;
+        cursor: pointer; }
+      .root .right .actions > * .fa-comment-alt {
+        margin-right: 5px; }
+    .root .right .comment-list {
+      margin-top: 15px;
+      margin-left: -10px; }
+
+/*# sourceMappingURL=comment.component.css.map */

@@ -1,0 +1,5 @@
+.comment:not(:first-child) {
+  display: block;
+  margin-top: 15px; }
+
+/*# sourceMappingURL=comment-list.component.css.map */

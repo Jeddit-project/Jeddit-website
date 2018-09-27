@@ -17,6 +17,9 @@ import { ArticleComponent } from './dashboard/post/article/article.component';
 import { AboutComponent } from './dashboard/post/side-panels/about/about.component';
 import { RulesComponent } from './dashboard/post/side-panels/rules/rules.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommentListComponent } from './dashboard/post/article/comment-list/comment-list.component';
+import { CommentComponent } from './dashboard/post/article/comment-list/comment/comment.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -32,15 +35,17 @@ import { HttpClientModule } from '@angular/common/http';
     ArticleComponent,
     AboutComponent,
     RulesComponent,
+    CommentListComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

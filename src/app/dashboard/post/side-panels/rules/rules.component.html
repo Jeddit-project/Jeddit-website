@@ -1,0 +1,23 @@
+<div class="panel">
+  <div class="title">r/Terraria Rules</div>
+
+  <div class="accordion" id="accordionExample">
+
+    <div *ngFor="let rule of rules | async; let rowIndex = index" class="card">
+      <div class="card-header" [attr.id]="'heading-' + rowIndex">
+        <h5 class="mb-0">
+          <span data-toggle="collapse" [attr.data-target]="'#rule-' + rowIndex" aria-expanded="false" [attr.aria-controls]="'rule-' + rowIndex">
+            {{ rule.title }}
+          </span>
+        </h5>
+      </div>
+
+      <div [attr.id]="'rule-' + rowIndex" class="collapse">
+        <div class="card-body">
+          {{ rule.content }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {AuthenticationService} from './authentication.service';
+import {makeTokenHeader} from '../helpers/token';
 
 class Poster {
   id: number;
@@ -25,7 +27,7 @@ export class Post {
 }
 
 
-let mockPosts: Post[] = [
+const mockPosts: Post[] = [
   // {
   //   id: 0,
   //   subjeddit: {
@@ -55,7 +57,7 @@ let mockPosts: Post[] = [
 export class UserFeedService {
   selectedPost: Post;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
 
     // for (const i of [1, 2, 3, 4, 5, 6, 8, 7, 9, 0]) {
     //   mockPosts.push({
@@ -82,7 +84,8 @@ export class UserFeedService {
   }
 
   fetchFeedList(): Observable<Post[]> {
+    console.log(this.authenticationService.token);
     // return of(mockPosts)
-    return this.http.get<Post[]>('http://localhost:8080/test')
+    return this.http.get<Post[]>('http://localhost:8080/api/feed', {headers: makeTokenHeader(this.authenticationService)})
   }
 }

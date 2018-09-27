@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../services/authentication.service';
+import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) { }
 
   ngOnInit() {
+    if (!this.authenticationService.tokenExists()) {
+      if (this.cookieService.check('Token')) {
+        this.authenticationService.token = this.cookieService.get('Token');
+      } else {
+        this.router.navigate(['/login']);
+      }
+    }
   }
-
 }

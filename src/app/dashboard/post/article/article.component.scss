@@ -1,5 +1,13 @@
-.article {
+.root, .article {
+  //height: calc(100% - 30px);
+  //min-height: calc(100% - 30px);
+}
+
+.root {
   background-color: white;
+}
+
+.article {
   display: block;
   width: 890px;
 
@@ -86,4 +94,9 @@
       margin-right: 5px;
     }
   }
+}
+
+#comments {
+  display: block;
+  margin-left: 15px;
 }

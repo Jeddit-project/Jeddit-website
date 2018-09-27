@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,0BAA2B;EACzB,OAAO,EAAE,KAAK;EACd,UAAU,EAAE,IAAI",
+"sources": ["comment-list.component.scss"],
+"names": [],
+"file": "comment-list.component.css"
+}

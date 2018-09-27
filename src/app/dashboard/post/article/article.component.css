@@ -1,5 +1,7 @@
+.root {
+  background-color: white; }
+
 .article {
-  background-color: white;
   display: block;
   width: 890px;
   margin-top: 15px; }
@@ -52,5 +54,9 @@
       margin-right: 5px; }
     .right .interactions [class*="fa fa-"] {
       margin-right: 5px; }
+
+#comments {
+  display: block;
+  margin-left: 15px; }
 
 /*# sourceMappingURL=article.component.css.map */

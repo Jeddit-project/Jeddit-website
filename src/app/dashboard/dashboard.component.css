@@ -1,4 +1,8 @@
-.root .content {
+.content, router-outlet, app-home, app-post {
   padding-top: 57.5px; }
+
+.content {
+  display: block;
+  min-height: 100%; }
 
 /*# sourceMappingURL=dashboard.component.css.map */

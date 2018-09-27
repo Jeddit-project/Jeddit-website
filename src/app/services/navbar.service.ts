@@ -24,10 +24,6 @@ export class NavbarService {
 
   constructor() { }
 
-  getCurrentPage() {
-    console.log(location.pathname);
-  }
-
   getSubscribedSubjeddits(): Observable<IListSubjeddit[]> {
     return of(demoList)
   }

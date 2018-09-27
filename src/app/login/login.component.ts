@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-// import {HttpClient} from "@angular/common/http";
+import {AuthenticationService} from '../services/authentication.service';
+import {Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 
 interface UserLogin {
   username: string,
   password: string
 }
-
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,32 @@ interface UserLogin {
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  incorrect = false;
+
+  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) { }
 
   ngOnInit() {
+    if (this.authenticationService.tokenExists()) {
+      this.router.navigate(['/']);
+    } else {
+      if (this.cookieService.check('Token')) {
+        this.authenticationService.token = this.cookieService.get('Token');
+        this.router.navigate(['/']);
+      }
+    }
   }
 
   onSubmit(user: UserLogin) {
-    // let requestthis.http.post(SERVER_URL, user, {withCredentials: true})
     console.log(user);
+
+    this.incorrect = false;
+    this.authenticationService.obtainNewToken(user.username, user.password).subscribe(success => {
+      this.incorrect = !success;
+
+      if (success) {
+        this.cookieService.set('Token', this.authenticationService.token);
+        this.router.navigate(['/']);
+      }
+    });
   }
 }
