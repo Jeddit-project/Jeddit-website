@@ -7,61 +7,56 @@
         <div class="form-group form-row">
           <div class="col">
             <label for="input-first-name">First name</label>
-            <input ngModel name="first_name" id="input-first-name" type="text" class="form-control" placeholder="First name" required>
+            <input ngModel #first_name (change)="validateName(first_name.value)" name="first_name" id="input-first-name" type="text" class="form-control" placeholder="First name" required>
           </div>
 
           <div class="col">
             <label for="input-last-name">Last name</label>
-            <input ngModel name="last_name" id="input-last-name" type="text" class="form-control" placeholder="Last name" required>
+            <input ngModel #last_name (change)="validateName(last_name.value)" name="last_name" id="input-last-name" type="text" class="form-control" placeholder="Last name" required>
           </div>
         </div>
 
+        <div *ngIf="nameInvalid" class="incorrect alert alert-danger" role="alert">Invalid name.</div>
+
         <div class="form-group">
           <label for="input-email">Email address</label>
-          <input ngModel name="email" id="input-email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
+          <input ngModel #email (change)="validateEmail(email.value)" name="email" id="input-email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
           <small id="email-info" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
+        <div *ngIf="emailInvalid" class="incorrect alert alert-danger" role="alert">Invalid email address.</div>
+        <div *ngIf="emailAlreadyUsed" class="incorrect alert alert-danger" role="alert">Email address already in use.</div>
+
         <div class="form-group">
           <label for="input-username">Username</label>
-          <input ngModel name="username" type="text" class="form-control" id="input-username" placeholder="Username" required>
+          <input ngModel #username (change)="validateUsername(username.value)" name="username" type="text" class="form-control" id="input-username" placeholder="Username" required>
         </div>
+
+        <div *ngIf="usernameInvalid" class="incorrect alert alert-danger" role="alert">Invalid username.</div>
+        <div *ngIf="usernameAlreadyUsed" class="incorrect alert alert-danger" role="alert">Username already in use.</div>
 
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="input-password">Password</label>
-            <input #pass1="ngModel" ngModel name="password" type="password" class="form-control" id="input-password" placeholder="Password"
-                   minlength="8" maxlength="20"  required>
+            <input ngModel #password (change)="validatePasswordLength(password.value)" name="password" type="password" class="form-control" id="input-password" placeholder="Password"
+                   minlength="8" maxlength="20" required>
             <small class="text-muted">Must be 8-20 characters long.</small>
           </div>
 
           <div class="form-group col-md-6">
             <label for="input-retype-password">Retype password</label>
-            <input type="password" class="form-control" id="input-retype-password" placeholder="Retype password" required>
+            <input ngModel #confirmation (change)="validateConfirmation(password.value, confirmation.value)" name="confirmation_password" type="password" class="form-control" id="input-retype-password" placeholder="Retype password" required>
           </div>
         </div>
 
-        <!--<div *ngIf="pass1.invalid && (pass1.touched)" class="alert alert-danger">-->
-          <!--<div *ngIf="!pass1.value">-->
-            <!--Password must not be empty.-->
-          <!--</div>-->
-
-          <!--<div *ngIf="pass1.errors.minlength">-->
-            <!--Name must be at least 8 characters long.-->
-          <!--</div>-->
-
-
-        <!--</div>-->
-
-        <!--<div *ngIf="pass2.touched">-->
-          <!--<div *ngIf="pass1.value !== pass2.value">-->
-            <!--Passwords don't match.-->
-          <!--</div>-->
-        <!--</div>-->
+        <div *ngIf="passwordInvalidLength" class="incorrect alert alert-danger" role="alert">Must be 8-20 characters long.</div>
+        <div *ngIf="passwordsDontMatch" class="incorrect alert alert-danger" role="alert">Your password and confirmation password do not match.</div>
 
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-primary center-block">Register</button>
         </div>
+
+        <div *ngIf="registrationFailed" class="incorrect alert alert-danger" role="alert">Registration failed.</div>
 
         <div class="log-in-instead">
           <small>

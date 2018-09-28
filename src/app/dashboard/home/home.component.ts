@@ -10,9 +10,7 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) { }
-
-  ngOnInit() {
+  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) {
     if (!this.authenticationService.tokenExists()) {
       if (this.cookieService.check('Token')) {
         this.authenticationService.token = this.cookieService.get('Token');
@@ -20,5 +18,8 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     }
+  }
+
+  ngOnInit() {
   }
 }

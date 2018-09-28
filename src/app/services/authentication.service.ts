@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Observer, Subject} from 'rxjs';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  token: string;
 
-  token: string = null;
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) {
+    if (this.cookieService.check('Token')) {
+      this.token = this.cookieService.get('Token');
+    }
+  }
 
   tokenExists(): boolean {
     return this.token != null
@@ -27,8 +31,10 @@ export class AuthenticationService {
       'password': password
     }).subscribe(resp => {
       this.token = resp.token;
+
       console.log(this.token);
-      success.next(true)
+      success.next(true);
+
     }, error => {
       success.next(false)
     });

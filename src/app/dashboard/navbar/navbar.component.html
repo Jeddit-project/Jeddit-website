@@ -40,9 +40,9 @@
 
   <div ngbDropdown class="d-inline-block">
 
-    <button ngbDropdownToggle class="btn" id="profile-toggle">
+    <button *ngIf="userInfo" ngbDropdownToggle class="btn" id="profile-toggle">
       <!--<div id="profile-container">-->
-      <i class="fas fa-user"></i>Rosca Alex
+      <i class="fas fa-user"></i>{{ userInfo.first_name }} {{userInfo.last_name}}
       <!--</div>-->
 
     </button>

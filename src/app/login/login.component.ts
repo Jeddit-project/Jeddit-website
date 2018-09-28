@@ -18,17 +18,14 @@ export class LoginComponent implements OnInit {
 
   incorrect = false;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) { }
-
-  ngOnInit() {
+  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) {
     if (this.authenticationService.tokenExists()) {
       this.router.navigate(['/']);
-    } else {
-      if (this.cookieService.check('Token')) {
-        this.authenticationService.token = this.cookieService.get('Token');
-        this.router.navigate(['/']);
-      }
     }
+  }
+
+  ngOnInit() {
+
   }
 
   onSubmit(user: UserLogin) {

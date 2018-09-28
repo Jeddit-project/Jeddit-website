@@ -4,6 +4,16 @@ import {ListSubjeddit, NavbarService} from '../../services/navbar.service';
 import {AuthenticationService} from '../../services/authentication.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {createTokenHeader} from '../../helpers/token';
+
+
+class UserInfo {
+  username: string;
+  first_name: string;
+  last_name: string;
+}
+
 
 @Component({
   selector: 'app-navbar',
@@ -16,15 +26,24 @@ export class NavbarComponent implements OnInit {
     private navbarService: NavbarService,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private cookieService: CookieService
-  ) { }
+    private cookieService: CookieService,
+    private http: HttpClient
+  ) {}
 
   subjeddits: Observable<ListSubjeddit[]>;
   location: Location = location;
+  userInfo: UserInfo;
 
   ngOnInit() {
     this.subjeddits = this.navbarService.getSubscribedSubjeddits();
+
+      this.http.get<UserInfo>(`http://localhost:8080/api/u/me/info`, {headers: createTokenHeader(this.authenticationService)})
+        .subscribe(value => {
+          this.userInfo = value;
+        })
   }
+
+
 
   logOut() {
     this.authenticationService.removeToken();
