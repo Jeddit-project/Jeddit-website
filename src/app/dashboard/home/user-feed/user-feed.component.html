@@ -1,28 +1,3 @@
-<div *ngFor="let post of feedList | async" class="post d-flex" routerLink="r/Terraria" (click)="selectPost(post)">
-
-  <div class="left d-flex flex-column align-items-center">
-    <i class="fas fa-caret-up"></i>
-    <div class="points">{{ post.points }}</div>
-    <i class="fas fa-caret-down"></i>
-  </div>
-
-  <div class="right d-flex flex-column">
-
-    <div class="origin d-flex align-items-center">
-      <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
-      <div class="subjeddit-name">r/{{ post.subjeddit.name }}</div>
-      <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.time }}</div>
-    </div>
-
-    <p class="title">{{ post.title }}</p>
-    <div class="content">{{ post.text }}</div>
-
-    <div class="interactions d-flex">
-      <button ngbButton class="btn btn-light" href=""><i class="fas fa-comment-alt"></i>{{ post.comments }} Comments</button>
-      <button ngbButton class="btn btn-light" href=""><i class="fas fa-share"></i>Share</button>
-      <button ngbButton class="btn btn-light" href=""><i class="fas fa-bookmark"></i>Save</button>
-    </div>
-
-  </div>
-
+<div *ngFor="let post of feedList | async">
+  <app-feed-post [post]="post"></app-feed-post>
 </div>

@@ -16,9 +16,4 @@ export class UserFeedComponent implements OnInit {
   ngOnInit() {
     this.feedList = this.userFeedService.fetchFeedList();
   }
-
-  selectPost(post: Post) {
-    this.userFeedService.selectedPost = post;
-  }
-
 }

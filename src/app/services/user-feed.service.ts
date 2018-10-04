@@ -24,6 +24,7 @@ export class Post {
   title: string;
   text?: string;
   points: number;
+  vote: string;
   comments: number;
 }
 

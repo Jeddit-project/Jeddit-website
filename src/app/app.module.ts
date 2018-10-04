@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentListComponent } from './dashboard/post/article/comment-list/comment-list.component';
 import { CommentComponent } from './dashboard/post/article/comment-list/comment/comment.component';
 import {CookieService} from 'ngx-cookie-service';
+import {FeedPostComponent} from './dashboard/home/user-feed/feed-post/feed-post.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {CookieService} from 'ngx-cookie-service';
     RulesComponent,
     CommentListComponent,
     CommentComponent,
+    FeedPostComponent
   ],
   imports: [
     BrowserModule,

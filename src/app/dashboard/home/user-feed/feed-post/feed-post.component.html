@@ -1,0 +1,34 @@
+<div routerLink="r/Terraria" (click)="selectPost(post)" class="post d-flex">
+
+  <div class="left d-flex flex-column align-items-center">
+    <div class="upvote"
+         [class.active]="currentVote === 'UPVOTE'"(click)="upvote(); $event.stopPropagation();"><i class="fas fa-caret-up"></i></div>
+
+    <div class="points"
+         [class.upvote]="currentVote === 'UPVOTE'"
+         [class.downvote]="currentVote === 'DOWNVOTE'">{{ post.points }}</div>
+
+    <div class="downvote"
+         [class.active]="currentVote === 'DOWNVOTE'" (click)="downvote(); $event.stopPropagation();"><i class="fas fa-caret-down"></i></div>
+  </div>
+
+  <div class="right d-flex flex-column">
+
+    <div class="origin d-flex align-items-center">
+      <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
+      <div class="subjeddit-name">r/{{ post.subjeddit.name }}</div>
+      <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.time }}</div>
+    </div>
+
+    <p class="title">{{ post.title }}</p>
+    <div class="content">{{ post.text }}</div>
+
+    <div class="interactions d-flex">
+      <button ngbButton class="btn btn-light" href=""><i class="fas fa-comment-alt"></i>{{ post.comments }} Comments</button>
+      <button ngbButton class="btn btn-light" href=""><i class="fas fa-share"></i>Share</button>
+      <button ngbButton class="btn btn-light" href=""><i class="fas fa-bookmark"></i>Save</button>
+    </div>
+
+  </div>
+
+</div>
