@@ -14,8 +14,10 @@ export class CommentComponent implements OnInit {
   @Input() comment: Comment;
 
   collapsed = false;
+  toggleReply = false;
 
-  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
+  constructor(private http: HttpClient,
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }

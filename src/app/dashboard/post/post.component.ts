@@ -9,7 +9,8 @@ import {UserFeedService} from '../../services/user-feed.service';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private location: Location, public userFeedService: UserFeedService) { }
+  constructor(private location: Location,
+              public userFeedService: UserFeedService) { }
 
   ngOnInit() {
   }

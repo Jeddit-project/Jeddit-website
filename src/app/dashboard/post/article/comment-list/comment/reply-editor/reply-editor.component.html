@@ -1,0 +1,9 @@
+<div class="root">
+  <div class="editor">
+    <ckeditor #editor [editor]="editorClass" (ready)="onReady($event)" (change)="onChange()"></ckeditor>
+  </div>
+
+  <button #comment_btn (click)="postComment()" class="comment-btn btn btn-primary" disabled>Comment</button>
+  <button (click)="close.emit()" class="cancel-btn btn btn-outline-primary">Cancel</button>
+</div>
+

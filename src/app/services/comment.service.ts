@@ -29,8 +29,10 @@ export class Comment {
 export class CommentService {
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 
-  getComments(postId: number): Observable<[Comment]> {
-    return this.http.get<[Comment]>(`http://localhost:8080/api/post/${postId}/comments`,
+  comments: Observable<[Comment]>;
+
+  fetchComments(postId: number) {
+    this.comments = this.http.get<[Comment]>(`http://localhost:8080/api/post/${postId}/comments`,
       this.authenticationService.token != null ? {headers: createTokenHeader(this.authenticationService)} : {})
   }
 }

@@ -18,7 +18,10 @@ export class LoginComponent implements OnInit {
 
   incorrect = false;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) {
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService,
+              private cookieService: CookieService) {
+
     if (this.authenticationService.loggedIn()) {
       this.router.navigate(['/']);
     }

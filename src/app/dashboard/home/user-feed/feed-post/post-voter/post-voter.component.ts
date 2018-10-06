@@ -12,7 +12,8 @@ import {HttpClient} from '@angular/common/http';
 export class PostVoterComponent implements OnInit {
 
   @Input() post: Post;
-  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
+  constructor(private http: HttpClient,
+              private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }

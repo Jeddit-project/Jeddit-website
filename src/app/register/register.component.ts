@@ -44,7 +44,11 @@ export class RegisterComponent implements OnInit {
     'Content-Type': 'text/plain'
   });
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, private cookieService: CookieService) {
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService,
+              private http: HttpClient,
+              private cookieService: CookieService) {
+
     if (this.authenticationService.loggedIn()) {
       this.router.navigate(['/']);
     }

@@ -22,12 +22,11 @@ class UserInfo {
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(
-    private navbarService: NavbarService,
-    private router: Router,
-    public authenticationService: AuthenticationService,
-    private cookieService: CookieService,
-    private http: HttpClient
+  constructor(private navbarService: NavbarService,
+              private router: Router,
+              public authenticationService: AuthenticationService,
+              private cookieService: CookieService,
+              private http: HttpClient
   ) {}
 
   subjeddits: Observable<ListSubjeddit[]>;

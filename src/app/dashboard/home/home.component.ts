@@ -10,7 +10,10 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private cookieService: CookieService) {
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService,
+              private cookieService: CookieService) {
+
     if (!this.authenticationService.loggedIn()) {
       if (this.cookieService.check('Token')) {
         this.authenticationService.setToken(this.cookieService.get('Token'));

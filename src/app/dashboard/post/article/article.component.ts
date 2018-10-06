@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserFeedService} from '../../../services/user-feed.service';
 import {Comment, CommentService} from '../../../services/comment.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -16,9 +16,13 @@ export class ArticleComponent implements OnInit {
 
   editorClass = ClassicEditor;
   editor: ClassicEditor;
-  comments: [Comment];
 
-  constructor(public userFeedService: UserFeedService, private commentService: CommentService, public authenticationService: AuthenticationService, private http: HttpClient) { }
+  @ViewChild('comment_btn') comment_btn: ElementRef;
+
+  constructor(public userFeedService: UserFeedService,
+              public commentService: CommentService,
+              public authenticationService: AuthenticationService,
+              private http: HttpClient) { }
 
   onReady(editor) {
     this.editor = editor;
@@ -31,7 +35,7 @@ export class ArticleComponent implements OnInit {
 
     // If whitespace
     const whitespace = (text.replace(/^\s+/, '').replace(/\s+$/, '') === '');
-    document.querySelector('.comment-btn').disabled = whitespace;
+    this.comment_btn.nativeElement.disabled = whitespace;
   }
 
   comment() {
@@ -39,12 +43,8 @@ export class ArticleComponent implements OnInit {
       {'text': this.editor.getData()},
       {headers: createTokenHeader(this.authenticationService)}).subscribe(value => {
         this.editor.setData('');
-        this.refreshComments();
+        this.commentService.fetchComments(this.userFeedService.selectedPost.id);
     })
-  }
-
-  refreshComments() {
-    this.commentService.getComments(this.userFeedService.selectedPost.id).subscribe(value => this.comments = value)
   }
 
   ngOnInit() {
@@ -72,6 +72,6 @@ export class ArticleComponent implements OnInit {
     // };
 
     console.log(this.userFeedService.selectedPost.id);
-    this.refreshComments()
+    this.commentService.fetchComments(this.userFeedService.selectedPost.id)
   }
 }

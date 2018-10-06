@@ -42,12 +42,14 @@
     <div class="text" [innerHTML]="comment.text"></div>
 
     <div class="actions">
-      <span><i class="fas fa-comment-alt"></i>Reply</span>
+      <span (click)="toggleReply = !toggleReply"><i class="fas fa-comment-alt"></i>Reply</span>
       <span>Share</span>
       <span>Report</span>
       <span>Save</span>
       <span>Give gold</span>
     </div>
+
+    <app-reply-editor [comment]="comment" (close)="toggleReply = false" *ngIf="toggleReply"></app-reply-editor>
 
     <app-comment-list class="comment-list" *ngIf="comment.replies.length > 0" [comments]="comment.replies"></app-comment-list>
   </div>

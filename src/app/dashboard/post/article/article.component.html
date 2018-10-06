@@ -29,7 +29,7 @@
             <ckeditor #editor [editor]="editorClass" (ready)="onReady($event)" (change)="onChange()"></ckeditor>
           </div>
 
-          <button (click)="comment()" class="comment-btn btn btn-primary" disabled>Comment</button>
+          <button #comment_btn (click)="comment()" class="comment-btn btn btn-primary" disabled>Comment</button>
         </div>
 
         <hr>
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <app-comment-list [comments]="comments" id="comments"></app-comment-list>
+    <app-comment-list [comments]="commentService.comments | async" id="comments"></app-comment-list>
 
   </div>
 </div>
