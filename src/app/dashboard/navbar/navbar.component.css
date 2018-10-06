@@ -2,7 +2,7 @@
   background-color: white;
   position: fixed;
   width: 100%;
-  z-index: 1; }
+  z-index: 9001; }
 
 #subjeddit-toggle {
   width: 250px;

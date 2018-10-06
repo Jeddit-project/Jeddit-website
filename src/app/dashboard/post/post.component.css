@@ -12,6 +12,7 @@
   margin: 0 auto; }
   .root .content .top {
     position: fixed;
+    z-index: 1;
     width: inherit;
     height: 50px;
     background-color: #030303;
@@ -56,4 +57,4 @@ hr {
 .article {
   margin-right: 25px; }
 
-/*# sourceMappingURL=feed-feed-post.component.csst.css.map */
+/*# sourceMappingURL=post.component.css.map */

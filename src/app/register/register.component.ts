@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
   });
 
   constructor(private router: Router, private authenticationService: AuthenticationService, private http: HttpClient, private cookieService: CookieService) {
-    if (this.authenticationService.tokenExists()) {
+    if (this.authenticationService.loggedIn()) {
       this.router.navigate(['/']);
     }
   }
@@ -92,7 +92,7 @@ export class RegisterComponent implements OnInit {
     this.http.post<RegistrationResponse>('http://localhost:8080/api/registration/register', user).subscribe(resp => {
       if (resp.success) {
         this.registrationFailed = false;
-        this.authenticationService.token = resp.token;
+        this.authenticationService.setToken(resp.token);
         this.cookieService.set('Token', resp.token);
         this.router.navigate(['/']);
       } else {

@@ -21,6 +21,8 @@ import { CommentListComponent } from './dashboard/post/article/comment-list/comm
 import { CommentComponent } from './dashboard/post/article/comment-list/comment/comment.component';
 import {CookieService} from 'ngx-cookie-service';
 import {FeedPostComponent} from './dashboard/home/user-feed/feed-post/feed-post.component';
+import { PostVoterComponent } from './dashboard/home/user-feed/feed-post/post-voter/post-voter.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import {FeedPostComponent} from './dashboard/home/user-feed/feed-post/feed-post.
     RulesComponent,
     CommentListComponent,
     CommentComponent,
-    FeedPostComponent
+    FeedPostComponent,
+    PostVoterComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import {FeedPostComponent} from './dashboard/home/user-feed/feed-post/feed-post.
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CKEditorModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -22,7 +22,9 @@
     font-weight: bold; }
 
 .right {
-  padding: 10px; }
+  padding: 10px;
+  padding-right: 50px;
+  width: 100%; }
   .right .origin {
     margin-bottom: 10px; }
     .right .origin .subjeddit-logo {
@@ -54,6 +56,17 @@
       margin-right: 5px; }
     .right .interactions [class*="fa fa-"] {
       margin-right: 5px; }
+  .right .editor-wrapper {
+    margin-top: 30px;
+    z-index: 0; }
+    .right .editor-wrapper .comment-as {
+      font-size: 0.8em; }
+    .right .editor-wrapper .comment-btn {
+      font-variant: all-small-caps;
+      font-weight: bold;
+      margin-top: 10px; }
+  .right hr {
+    width: 100%; }
 
 #comments {
   display: block;

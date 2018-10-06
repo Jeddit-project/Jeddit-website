@@ -2,10 +2,8 @@
   <div class="article">
     <div class="publication d-flex">
 
-      <div class="left d-flex flex-column align-items-center">
-        <i class="fas fa-caret-up"></i>
-        <div class="points">{{ userFeedService.selectedPost.points }}</div>
-        <i class="fas fa-caret-down"></i>
+      <div class="left">
+        <app-post-voter [post]="this.userFeedService.selectedPost"></app-post-voter>
       </div>
 
       <div class="right d-flex flex-column">
@@ -23,8 +21,20 @@
           <button ngbButton class="btn btn-light" href=""><i class="fas fa-share"></i>Share</button>
           <button ngbButton class="btn btn-light" href=""><i class="fas fa-bookmark"></i>Save</button>
         </div>
-      </div>
 
+        <div class="editor-wrapper">
+          <span *ngIf="authenticationService.userInfo | async as userInfo" class="comment-as">Comment as <a href="#">{{ userInfo.username }}</a></span>
+
+          <div class="editor">
+            <ckeditor #editor [editor]="editorClass" (ready)="onReady($event)" (change)="onChange()"></ckeditor>
+          </div>
+
+          <button (click)="comment()" class="comment-btn btn btn-primary" disabled>Comment</button>
+        </div>
+
+        <hr>
+
+      </div>
     </div>
 
     <app-comment-list [comments]="comments" id="comments"></app-comment-list>

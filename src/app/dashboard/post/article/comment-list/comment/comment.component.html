@@ -19,8 +19,11 @@
 <div class="root" *ngIf="!collapsed">
   <div class="left">
 
-    <i class="fas fa-arrow-up"></i>
-    <i class="fas fa-arrow-down"></i>
+    <div class="upvote-btn"
+         [class.active]="this.comment.vote === 'UPVOTE'"(click)="upvote(); $event.stopPropagation();"><i class="fas fa-arrow-up"></i></div>
+
+    <div class="downvote-btn"
+         [class.active]="this.comment.vote === 'DOWNVOTE'" (click)="downvote(); $event.stopPropagation();"><i class="fas fa-arrow-down"></i></div>
 
     <div class="line-container" (click)="collapsed = true">
       <div class="line"></div>
@@ -36,7 +39,7 @@
       <span class="time"> | {{ comment.created_at }} days ago</span>
     </div>
 
-    <div class="text">{{ comment.text }}</div>
+    <div class="text" [innerHTML]="comment.text"></div>
 
     <div class="actions">
       <span><i class="fas fa-comment-alt"></i>Reply</span>

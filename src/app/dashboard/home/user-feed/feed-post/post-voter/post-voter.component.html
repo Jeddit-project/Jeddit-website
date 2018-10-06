@@ -1,0 +1,11 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="upvote-btn"
+       [class.active]="this.post.vote === 'UPVOTE'"(click)="upvote(); $event.stopPropagation();"><i class="fas fa-caret-up"></i></div>
+
+  <div class="points"
+       [class.upvoted]="this.post.vote === 'UPVOTE'"
+       [class.downvoted]="this.post.vote === 'DOWNVOTE'">{{ post.points }}</div>
+
+  <div class="downvote-btn"
+       [class.active]="this.post.vote === 'DOWNVOTE'" (click)="downvote(); $event.stopPropagation();"><i class="fas fa-caret-down"></i></div>
+</div>

@@ -1,15 +1,7 @@
 <div routerLink="r/Terraria" (click)="selectPost(post)" class="post d-flex">
 
-  <div class="left d-flex flex-column align-items-center">
-    <div class="upvote"
-         [class.active]="currentVote === 'UPVOTE'"(click)="upvote(); $event.stopPropagation();"><i class="fas fa-caret-up"></i></div>
-
-    <div class="points"
-         [class.upvote]="currentVote === 'UPVOTE'"
-         [class.downvote]="currentVote === 'DOWNVOTE'">{{ post.points }}</div>
-
-    <div class="downvote"
-         [class.active]="currentVote === 'DOWNVOTE'" (click)="downvote(); $event.stopPropagation();"><i class="fas fa-caret-down"></i></div>
+  <div class="left">
+    <app-post-voter [post]="post"></app-post-voter>
   </div>
 
   <div class="right d-flex flex-column">

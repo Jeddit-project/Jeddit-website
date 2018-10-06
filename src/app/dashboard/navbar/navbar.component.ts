@@ -25,22 +25,29 @@ export class NavbarComponent implements OnInit {
   constructor(
     private navbarService: NavbarService,
     private router: Router,
-    private authenticationService: AuthenticationService,
+    public authenticationService: AuthenticationService,
     private cookieService: CookieService,
     private http: HttpClient
   ) {}
 
   subjeddits: Observable<ListSubjeddit[]>;
   location: Location = location;
-  userInfo: UserInfo;
 
   ngOnInit() {
     this.subjeddits = this.navbarService.getSubscribedSubjeddits();
 
-      this.http.get<UserInfo>(`http://localhost:8080/api/u/me/info`, {headers: createTokenHeader(this.authenticationService)})
-        .subscribe(value => {
-          this.userInfo = value;
-        })
+    // this.userInfo = this.authenticationService.userInfo.subscribe(
+    //   value => this.userInfo = value
+    // )
+    // this.userInfo = this.authenticationService.userInfo;
+
+    // console.log('uu' + this.authenticationService.userInfo.username);
+
+    // this.userInfo = this.authenticationService.userInfo
+    //   this.http.get<UserInfo>(`http://localhost:8080/api/user/me/info`, {headers: createTokenHeader(this.authenticationService)})
+    //     .subscribe(value => {
+    //       this.userInfo = value;
+    //     })
   }
 
 

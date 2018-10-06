@@ -1,3 +1,6 @@
+$upvote-color: #ff4500;
+$downvote-color: #7193ff;
+
 .root {
   display: flex;
   flex-direction: row;
@@ -11,13 +14,22 @@
     align-items: center;
     padding: 5px;
 
-    .fa-arrow-up, .fa-arrow-down {
-      color: #878a8c;
-    }
-
     .fa-arrow-down{
       margin-top: 5px;
       margin-bottom: 5px;
+    }
+
+    .upvote-btn, .downvote-btn {
+      cursor: pointer;
+      color: #878a8c;
+    }
+
+    .upvote-btn.active {
+      color: $upvote-color;
+    }
+
+    .downvote-btn.active {
+      color: $downvote-color;
     }
 
     .line-container {

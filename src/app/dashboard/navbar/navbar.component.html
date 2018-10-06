@@ -40,10 +40,8 @@
 
   <div ngbDropdown class="d-inline-block">
 
-    <button *ngIf="userInfo" ngbDropdownToggle class="btn" id="profile-toggle">
-      <!--<div id="profile-container">-->
+    <button *ngIf="authenticationService.userInfo | async as userInfo" ngbDropdownToggle class="btn" id="profile-toggle">
       <i class="fas fa-user"></i>{{ userInfo.first_name }} {{userInfo.last_name}}
-      <!--</div>-->
 
     </button>
 

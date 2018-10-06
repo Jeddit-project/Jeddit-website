@@ -7,11 +7,16 @@
   .root .left {
     align-items: center;
     padding: 5px; }
-    .root .left .fa-arrow-up, .root .left .fa-arrow-down {
-      color: #878a8c; }
     .root .left .fa-arrow-down {
       margin-top: 5px;
       margin-bottom: 5px; }
+    .root .left .upvote-btn, .root .left .downvote-btn {
+      cursor: pointer;
+      color: #878a8c; }
+    .root .left .upvote-btn.active {
+      color: #ff4500; }
+    .root .left .downvote-btn.active {
+      color: #7193ff; }
     .root .left .line-container {
       display: flex;
       justify-content: center;

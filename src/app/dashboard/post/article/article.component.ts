@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {UserFeedService} from '../../../services/user-feed.service';
 import {Comment, CommentService} from '../../../services/comment.service';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {AuthenticationService, UserInfo} from '../../../services/authentication.service';
+import {HttpClient} from '@angular/common/http';
+import {createTokenHeader} from '../../../helpers/token';
+
 
 @Component({
   selector: 'app-article',
@@ -9,11 +14,42 @@ import {Comment, CommentService} from '../../../services/comment.service';
 })
 export class ArticleComponent implements OnInit {
 
+  editorClass = ClassicEditor;
+  editor: ClassicEditor;
   comments: [Comment];
 
-  constructor(public userFeedService: UserFeedService, private commentService: CommentService) { }
+  constructor(public userFeedService: UserFeedService, private commentService: CommentService, public authenticationService: AuthenticationService, private http: HttpClient) { }
+
+  onReady(editor) {
+    this.editor = editor;
+  }
+
+  onChange() {
+    const tmp = document.createElement('DIV');
+    tmp.innerHTML = this.editor.getData();
+    const text = tmp.textContent || tmp.innerText || '';
+
+    // If whitespace
+    const whitespace = (text.replace(/^\s+/, '').replace(/\s+$/, '') === '');
+    document.querySelector('.comment-btn').disabled = whitespace;
+  }
+
+  comment() {
+    this.http.post(`http://localhost:8080/api/post/${this.userFeedService.selectedPost.id}/comments`,
+      {'text': this.editor.getData()},
+      {headers: createTokenHeader(this.authenticationService)}).subscribe(value => {
+        this.editor.setData('');
+        this.refreshComments();
+    })
+  }
+
+  refreshComments() {
+    this.commentService.getComments(this.userFeedService.selectedPost.id).subscribe(value => this.comments = value)
+  }
 
   ngOnInit() {
+    // this.userInfo = this.authenticationService.userInfo
+    // Array.from( this.editor.ui.componentFactory.names() );
 
     // FIXME remove afterwards
     // this.userFeedService.selectedPost = {
@@ -31,11 +67,11 @@ export class ArticleComponent implements OnInit {
     //   title: 'test',
     //   text: 'test',
     //   points: 34,
-    //   comments: 55
+    //   vote: 'NONE',
+    //   comments: 55,
     // };
 
     console.log(this.userFeedService.selectedPost.id);
-    this.commentService.getComments(this.userFeedService.selectedPost.id).subscribe(value => this.comments = value)
+    this.refreshComments()
   }
-
 }
