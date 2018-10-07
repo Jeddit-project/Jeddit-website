@@ -64,8 +64,23 @@ $downvote-color: #7193ff;
     .info {
       font-size: 0.75em;
 
+      $theme-color: rgb(97, 163, 27);
+
       .username {
-        color: rgb(97, 163, 27);
+        color: $theme-color
+      }
+      .op {
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      .op-icon {
+        display: inline;
+        margin-left: 5px;
+        color: $theme-color;
+      }
+
+      .points {
+        margin-left: 10px;
       }
 
       .points, .time {
@@ -100,4 +115,9 @@ $downvote-color: #7193ff;
       margin-left: -10px;
     }
   }
+}
+
+// comment text - last element
+:host ::ng-deep .text *:last-child {
+  margin-bottom: 0;
 }

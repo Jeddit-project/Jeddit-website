@@ -8,8 +8,8 @@
 
     <div class="info">
       <span class="username">{{ comment.user.username }}</span>
-      <span class="points"> | {{ comment.points }} points</span>
-      <span class="time"> | {{ comment.time }} days ago</span>
+      <span class="points">{{ comment.points }} points</span>
+      <span class="time"> · {{ comment.created_at | relativeTime }}</span>
     </div>
 
   </div>
@@ -34,9 +34,10 @@
   <div class="right">
 
     <div class="info">
-      <span class="username">{{ comment.user.username }}</span>
-      <span class="points"> | {{ comment.points }} points</span>
-      <span class="time"> | {{ comment.created_at }} days ago</span>
+      <span [class.op]="comment.user.id === userFeedService.selectedPost.poster.id" class="username">{{ comment.user.username }}</span>
+      <div *ngIf="comment.user.id === userFeedService.selectedPost.poster.id" class="op-icon"><i class="fas fa-pen"></i></div>
+      <span class="points">{{ comment.points }} points</span>
+      <span class="time"> · {{ comment.created_at | relativeTime }}</span>
     </div>
 
     <div class="text" [innerHTML]="comment.text"></div>

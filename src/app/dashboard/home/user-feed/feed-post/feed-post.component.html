@@ -1,4 +1,4 @@
-<div routerLink="r/Terraria" (click)="selectPost(post)" class="post d-flex">
+<div routerLink="j/{{ post.subjeddit.name }}/{{ post.random_id }}/{{ post.title_id }}" (click)="selectPost(post)" class="post d-flex">
 
   <div class="left">
     <app-post-voter [post]="post"></app-post-voter>
@@ -9,7 +9,7 @@
     <div class="origin d-flex align-items-center">
       <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
       <div class="subjeddit-name">r/{{ post.subjeddit.name }}</div>
-      <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.time }}</div>
+      <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.created_at | relativeTime }}</div>
     </div>
 
     <p class="title">{{ post.title }}</p>

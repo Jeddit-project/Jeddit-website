@@ -1,7 +1,7 @@
 <div class="root" (click)="goBack($event)">
   <div class="bg"></div>
 
-  <div class="content">
+  <div *ngIf="userFeedService.selectedPost" class="content">
     <div class="top  d-flex flex-row justify-content-center">
 
       <div class="top-left  d-flex flex-row">

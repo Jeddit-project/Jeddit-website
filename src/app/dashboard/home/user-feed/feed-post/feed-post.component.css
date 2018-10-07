@@ -4,11 +4,13 @@
   border: 1px solid lightgray;
   border-radius: 5px;
   transition: border-color 0.1s;
+  transition: box-shadow 0.1s;
   cursor: pointer;
   overflow: hidden;
-  margin-top: 15px; }
+  margin-top: 15px;
+  box-shadow: 0px 2px 2px 0px darkgray; }
   .post:hover {
-    border-color: black; }
+    box-shadow: 0px 5px 10px 0px darkgray; }
 
 .left {
   background-color: #f7f9fa;
@@ -19,7 +21,8 @@
 .right {
   width: 100%;
   background-color: white;
-  padding: 10px; }
+  padding: 10px;
+  box-shadow: 0px 2px 2px 0px darkgray; }
   .right .origin {
     margin-bottom: 10px; }
     .right .origin .subjeddit-logo {

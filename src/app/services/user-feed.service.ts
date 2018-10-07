@@ -18,6 +18,12 @@ class Subjeddit {
 
 export class Post {
   id: number;
+  created_at: number;
+  updated_at: number;
+
+  random_id: string;
+  title_id: string;
+
   subjeddit: Subjeddit;
   poster: Poster;
 

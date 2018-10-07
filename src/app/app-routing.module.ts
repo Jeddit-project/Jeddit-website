@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: '', component: DashboardComponent, children: [
       {path: '', component: HomeComponent},
-      {path: 'r/:subjeddit', component: PostComponent}
+      {path: 'j/:subjeddit/:random_id/:title_id', component: PostComponent}
     ]},
 ];
 

@@ -24,6 +24,8 @@ import {FeedPostComponent} from './dashboard/home/user-feed/feed-post/feed-post.
 import { PostVoterComponent } from './dashboard/home/user-feed/feed-post/post-voter/post-voter.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import { ReplyEditorComponent } from './dashboard/post/article/comment-list/comment/reply-editor/reply-editor.component';
+import { RelativeTimePipe } from './pipes/relative-time.pipe';
+import { ShortNumberPipe } from './pipes/short-number.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ReplyEditorComponent } from './dashboard/post/article/comment-list/comm
     CommentComponent,
     FeedPostComponent,
     PostVoterComponent,
-    ReplyEditorComponent
+    ReplyEditorComponent,
+    RelativeTimePipe,
+    ShortNumberPipe,
   ],
   imports: [
     BrowserModule,

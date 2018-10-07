@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Comment} from '../../../../../services/comment.service';
 import {createTokenHeader} from '../../../../../helpers/token';
 import {HttpClient} from '@angular/common/http';
 import {AuthenticationService} from '../../../../../services/authentication.service';
+import {UserFeedService} from '../../../../../services/user-feed.service';
 
 @Component({
   selector: 'app-comment',
@@ -17,7 +18,8 @@ export class CommentComponent implements OnInit {
   toggleReply = false;
 
   constructor(private http: HttpClient,
-              private authenticationService: AuthenticationService) { }
+              private authenticationService: AuthenticationService,
+              public userFeedService: UserFeedService) { }
 
   ngOnInit() {
   }

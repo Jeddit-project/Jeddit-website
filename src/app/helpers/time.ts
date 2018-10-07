@@ -1,0 +1,4 @@
+function timeDifference(current, previous) {
+
+
+}

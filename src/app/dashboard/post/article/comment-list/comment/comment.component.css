@@ -38,6 +38,15 @@
       font-size: 0.75em; }
       .root .right .info .username {
         color: #61a31b; }
+      .root .right .info .op {
+        font-size: 1.1em;
+        font-weight: bold; }
+      .root .right .info .op-icon {
+        display: inline;
+        margin-left: 5px;
+        color: #61a31b; }
+      .root .right .info .points {
+        margin-left: 10px; }
       .root .right .info .points, .root .right .info .time {
         color: #7c7c7c; }
     .root .right .text {
@@ -56,5 +65,8 @@
     .root .right .comment-list {
       margin-top: 15px;
       margin-left: -10px; }
+
+:host ::ng-deep .text *:last-child {
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=comment.component.css.map */
