@@ -26,6 +26,7 @@ import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import { ReplyEditorComponent } from './dashboard/post/article/comment-list/comment/reply-editor/reply-editor.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { ShortNumberPipe } from './pipes/short-number.pipe';
+import { CommentSorterComponent } from './dashboard/post/article/comment-sorter/comment-sorter.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ShortNumberPipe } from './pipes/short-number.pipe';
     ReplyEditorComponent,
     RelativeTimePipe,
     ShortNumberPipe,
+    CommentSorterComponent,
   ],
   imports: [
     BrowserModule,

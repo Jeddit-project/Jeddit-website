@@ -8,13 +8,13 @@
   background-color: #2e2f2f; }
 
 .root .content {
-  width: calc(100% - 320px);
+  max-width: calc(100% - 320px);
   margin: 0 auto; }
   .root .content .top {
     position: fixed;
-    z-index: 1;
-    width: inherit;
+    width: calc(100% - 320px);
     height: 50px;
+    z-index: 1;
     background-color: #030303;
     align-items: center; }
     .root .content .top .top-left {
@@ -32,8 +32,10 @@
         white-space: nowrap;
         overflow: hidden; }
     .root .content .top .top-right {
-      margin-left: 350px; }
+      display: inline-block !important;
+      width: 350px; }
       .root .content .top .top-right .close-btn {
+        float: right;
         padding: 0;
         padding-left: 7px;
         padding-right: 7px;
@@ -44,6 +46,7 @@
         .root .content .top .top-right .close-btn [class*="fa fa-"] {
           margin-right: 5px; }
   .root .content .bottom {
+    padding: 15px;
     padding-top: 50px;
     background-color: #dae0e6; }
     .root .content .bottom a {
@@ -56,5 +59,9 @@ hr {
 
 .article {
   margin-right: 25px; }
+
+@media screen and (max-width: 1200px) {
+  .cards {
+    display: none !important; } }
 
 /*# sourceMappingURL=post.component.css.map */

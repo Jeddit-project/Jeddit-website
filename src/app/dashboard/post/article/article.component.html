@@ -10,7 +10,7 @@
         <div class="origin d-flex align-items-center">
           <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
           <div class="subjeddit-name">r/{{ userFeedService.selectedPost.subjeddit.name }}</div>
-          <div class="posted-by">Posted by <a href="">u/{{ userFeedService.selectedPost.poster.username }}</a> 3 days ago</div>
+          <div class="posted-by">Posted by <a href="">u/{{ userFeedService.selectedPost.poster.username }}</a> {{ userFeedService.selectedPost.created_at | relativeTime }}</div>
         </div>
 
         <p class="title">{{ userFeedService.selectedPost.title }}</p>
@@ -32,12 +32,13 @@
           <button #comment_btn (click)="comment()" class="comment-btn btn btn-primary" disabled>Comment</button>
         </div>
 
-        <hr>
-
       </div>
     </div>
 
-    <app-comment-list [comments]="commentService.comments | async" id="comments"></app-comment-list>
+    <div class="bottom">
+      <app-comment-sorter [commentList]="comment_list"></app-comment-sorter>
+      <app-comment-list #comment_list [comments]="commentService.comments" id="comments"></app-comment-list>
+    </div>
 
   </div>
 </div>

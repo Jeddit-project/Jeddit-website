@@ -5,6 +5,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {AuthenticationService, UserInfo} from '../../../services/authentication.service';
 import {HttpClient} from '@angular/common/http';
 import {createTokenHeader} from '../../../helpers/token';
+import {CommentListComponent} from './comment-list/comment-list.component';
 
 
 @Component({
@@ -16,7 +17,6 @@ export class ArticleComponent implements OnInit {
 
   editorClass = ClassicEditor;
   editor: ClassicEditor;
-
   @ViewChild('comment_btn') comment_btn: ElementRef;
 
   constructor(public userFeedService: UserFeedService,
@@ -33,9 +33,8 @@ export class ArticleComponent implements OnInit {
     tmp.innerHTML = this.editor.getData();
     const text = tmp.textContent || tmp.innerText || '';
 
-    // If whitespace
-    const whitespace = (text.replace(/^\s+/, '').replace(/\s+$/, '') === '');
-    this.comment_btn.nativeElement.disabled = whitespace;
+    const isWhitespace = (text.replace(/^\s+/, '').replace(/\s+$/, '') === '');
+    this.comment_btn.nativeElement.disabled = isWhitespace;
   }
 
   comment() {
@@ -47,31 +46,8 @@ export class ArticleComponent implements OnInit {
     })
   }
 
+
   ngOnInit() {
-    // this.userInfo = this.authenticationService.userInfo
-    // Array.from( this.editor.ui.componentFactory.names() );
-
-    // FIXME remove afterwards
-    // this.userFeedService.selectedPost = {
-    //   id: 1,
-    //   subjeddit: {
-    //     id: 1,
-    //     name: 'Terraira',
-    //     image: 'da',
-    //   },
-    //   poster: {
-    //     id: 1,
-    //     username: 'roscaalex19'
-    //   },
-    //
-    //   title: 'test',
-    //   text: 'test',
-    //   points: 34,
-    //   vote: 'NONE',
-    //   comments: 55,
-    // };
-
-    console.log(this.userFeedService.selectedPost.id);
     this.commentService.fetchComments(this.userFeedService.selectedPost.id)
   }
 }

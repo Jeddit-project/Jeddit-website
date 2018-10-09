@@ -1,12 +1,23 @@
-.root {
-  background-color: white;
-}
-
 .article {
   display: block;
-  width: 890px;
+  max-width: 890px;
 
   margin-top: 15px;
+  box-shadow: 0px 5px 10px 0px darkgray;
+
+  .publication {
+    position: relative;
+    padding-bottom: 15px;
+
+    box-shadow: 0px 0px 2px 0px darkgray;
+    background-color: white;
+  }
+
+  .bottom {
+    padding: 15px;
+    //background-color: #f7f9fa;
+    background-color: #ffffffCC;
+  }
 }
 
 .left {
@@ -110,11 +121,4 @@
   hr {
     width: 100%;
   }
-}
-
-
-
-#comments {
-  display: block;
-  margin-left: 15px;
 }

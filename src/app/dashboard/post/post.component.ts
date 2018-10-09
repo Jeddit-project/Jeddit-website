@@ -27,10 +27,7 @@ export class PostComponent implements OnInit {
       this.http.get<Post>(`http://localhost:8080/api/post/${subjeddit}/${random_id}/${title_id}`,
         {headers: createTokenHeader(authenticationService)}).subscribe(value => {
 
-          value.points = 1234;
-
           this.userFeedService.selectedPost = value;
-          console.log(value.vote)
         });
     }
   }
