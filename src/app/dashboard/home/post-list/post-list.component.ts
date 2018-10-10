@@ -4,16 +4,16 @@ import {Post, UserFeedService} from '../../../services/user-feed.service';
 
 @Component({
   selector: 'app-user-feed',
-  templateUrl: './user-feed.component.html',
-  styleUrls: ['./user-feed.component.css']
+  templateUrl: './post-list.component.html',
+  styleUrls: ['./post-list.component.css']
 })
-export class UserFeedComponent implements OnInit {
+export class PostListComponent implements OnInit {
 
   constructor(private userFeedService: UserFeedService) { }
 
-  feedList: Observable<Post[]>;
+  feedList: Post[];
 
   ngOnInit() {
-    this.feedList = this.userFeedService.fetchFeedList();
+    this.userFeedService.fetchFeedList().subscribe(value => this.feedList = value);
   }
 }

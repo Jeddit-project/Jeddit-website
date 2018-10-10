@@ -1,7 +1,12 @@
-<div class="d-flex justify-content-center">
-  <div class="bg"></div>
+<div class="bg"></div>
 
-  <app-user-feed class="user-feed"></app-user-feed>
+<div class="root d-flex justify-content-center">
+
+  <div class="left">
+    <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
+    <app-user-feed #post_list class="user-feed"></app-user-feed>
+  </div>
+
   <div>
     <app-trending-communities></app-trending-communities>
   </div>

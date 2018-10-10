@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserFeedComponent } from './user-feed.component';
+import { CommentListSorterComponent } from './comment-list-sorter.component';
 
-describe('UserFeedComponent', () => {
-  let component: UserFeedComponent;
-  let fixture: ComponentFixture<UserFeedComponent>;
+describe('CommentListSorterComponent', () => {
+  let component: CommentListSorterComponent;
+  let fixture: ComponentFixture<CommentListSorterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserFeedComponent ]
+      declarations: [ CommentListSorterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserFeedComponent);
+    fixture = TestBed.createComponent(CommentListSorterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

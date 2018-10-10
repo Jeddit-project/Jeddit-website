@@ -5,10 +5,10 @@ import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-feed-post',
-  templateUrl: './feed-post.component.html',
-  styleUrls: ['./feed-post.component.css']
+  templateUrl: './post-list-item.component.html',
+  styleUrls: ['./post-list-item.component.css']
 })
-export class FeedPostComponent implements OnInit {
+export class PostListItemComponent implements OnInit {
   @Input() post: Post;
 
   constructor(private userFeedService: UserFeedService,

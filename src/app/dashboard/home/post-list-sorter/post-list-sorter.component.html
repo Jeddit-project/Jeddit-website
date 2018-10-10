@@ -1,0 +1,20 @@
+<span class="sort-by-label">Sort by</span>
+
+<div ngbDropdown class="d-inline-block">
+  <button ngbDropdownToggle class="btn btn-outline-primary dropdown-toggle">
+    <div [ngSwitch]="sortingType">
+      <div *ngSwitchCase="'TOP'"><div class="icon"><i class="fas fa-sort-amount-up"></i></div>Top</div>
+      <div *ngSwitchCase="'NEW'"><div class="icon"><i class="fas fa-certificate"></i></div>New</div>
+    </div>
+  </button>
+
+  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic1">
+    <button (click)="sortBy('TOP')" class="dropdown-item">
+      <div class="icon"><i class="fas fa-sort-amount-up"></i></div>Top
+    </button>
+
+    <button (click)="sortBy('NEW')" class="dropdown-item">
+      <div class="icon"><i class="fas fa-certificate"></i></div>New
+    </button>
+  </div>
+</div>

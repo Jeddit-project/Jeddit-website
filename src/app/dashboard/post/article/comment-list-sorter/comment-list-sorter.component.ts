@@ -4,10 +4,10 @@ import {Comment} from '../../../../services/comment.service';
 
 @Component({
   selector: 'app-comment-sorter',
-  templateUrl: './comment-sorter.component.html',
-  styleUrls: ['./comment-sorter.component.css']
+  templateUrl: './comment-list-sorter.component.html',
+  styleUrls: ['./comment-list-sorter.component.css']
 })
-export class CommentSorterComponent implements OnInit {
+export class CommentListSorterComponent implements OnInit {
 
   @Input() commentList: CommentListComponent;
   sortingType = 'TOP';
@@ -45,7 +45,7 @@ export class CommentSorterComponent implements OnInit {
         }
       }
 
-      CommentSorterComponent.recursivelySortComments(this.commentList.comments, compareFun);
+      CommentListSorterComponent.recursivelySortComments(this.commentList.comments, compareFun);
     }
   }
 }

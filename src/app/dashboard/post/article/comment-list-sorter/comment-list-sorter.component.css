@@ -16,4 +16,8 @@
 .dropdown-menu {
   min-width: 100px; }
 
-/*# sourceMappingURL=comment-sorter.component.css.map */
+.icon {
+  display: inline-block;
+  margin-right: 7px; }
+
+/*# sourceMappingURL=comment-list-sorter.component.css.map */

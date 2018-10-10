@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {AuthenticationService} from './authentication.service';
 import {createTokenHeader} from '../helpers/token';
-import {CommentSorterComponent} from '../dashboard/post/article/comment-sorter/comment-sorter.component';
+import {CommentListSorterComponent} from '../dashboard/post/article/comment-list-sorter/comment-list-sorter.component';
 
 
 class User {
@@ -37,7 +36,7 @@ export class CommentService {
       this.authenticationService.token != null ? {headers: createTokenHeader(this.authenticationService)} : {}).subscribe(value => {
 
         // Sort comments by highest points(TOP)
-        CommentSorterComponent.recursivelySortComments(value, (a, b) => b.points - a.points);
+        CommentListSorterComponent.recursivelySortComments(value, (a, b) => b.points - a.points);
         this.comments = value;
     })
   }

@@ -5,12 +5,14 @@ import {RegisterComponent} from './register/register.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {PostComponent} from './dashboard/post/post.component';
 import {HomeComponent} from './dashboard/home/home.component';
+import {SubjedditComponent} from './dashboard/subjeddit/subjeddit.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: '', component: DashboardComponent, children: [
       {path: '', component: HomeComponent},
+      {path: 'j/:subjeddit', component: SubjedditComponent},
       {path: 'j/:subjeddit/:random_id/:title_id', component: PostComponent}
     ]},
 ];

@@ -7,7 +7,7 @@
   transition: box-shadow 0.1s;
   cursor: pointer;
   overflow: hidden;
-  margin-top: 15px;
+  margin-bottom: 15px;
   box-shadow: 0px 2px 2px 0px darkgray; }
   .post:hover {
     box-shadow: 0px 4px 8px 0px darkgray; }
@@ -56,4 +56,4 @@
     .right .interactions [class*="fa fa-"] {
       margin-right: 5px; }
 
-/*# sourceMappingURL=feed-post.component.css.map */
+/*# sourceMappingURL=post-list-item.component.css.map */

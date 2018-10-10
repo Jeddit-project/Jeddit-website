@@ -9,7 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { NavbarComponent } from './dashboard/navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserFeedComponent } from './dashboard/home/user-feed/user-feed.component';
+import { PostListComponent } from './dashboard/home/post-list/post-list.component';
 import { TrendingCommunitiesComponent } from './dashboard/home/side-panels/trending-communities/trending-communities.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PostComponent } from './dashboard/post/post.component';
@@ -20,13 +20,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentListComponent } from './dashboard/post/article/comment-list/comment-list.component';
 import { CommentComponent } from './dashboard/post/article/comment-list/comment/comment.component';
 import {CookieService} from 'ngx-cookie-service';
-import {FeedPostComponent} from './dashboard/home/user-feed/feed-post/feed-post.component';
-import { PostVoterComponent } from './dashboard/home/user-feed/feed-post/post-voter/post-voter.component';
+import {PostListItemComponent} from './dashboard/home/post-list/post-list-item/post-list-item.component';
+import { PostVoterComponent } from './dashboard/home/post-list/post-list-item/post-voter/post-voter.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import { ReplyEditorComponent } from './dashboard/post/article/comment-list/comment/reply-editor/reply-editor.component';
 import { RelativeTimePipe } from './pipes/relative-time.pipe';
 import { ShortNumberPipe } from './pipes/short-number.pipe';
-import { CommentSorterComponent } from './dashboard/post/article/comment-sorter/comment-sorter.component';
+import { CommentListSorterComponent } from './dashboard/post/article/comment-list-sorter/comment-list-sorter.component';
+import { SubjedditComponent } from './dashboard/subjeddit/subjeddit.component';
+import { PostListSorterComponent } from './dashboard/home/post-list-sorter/post-list-sorter.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { CommentSorterComponent } from './dashboard/post/article/comment-sorter/
     RegisterComponent,
     NavbarComponent,
     DashboardComponent,
-    UserFeedComponent,
+    PostListComponent,
     TrendingCommunitiesComponent,
     HomeComponent,
     PostComponent,
@@ -44,12 +46,14 @@ import { CommentSorterComponent } from './dashboard/post/article/comment-sorter/
     RulesComponent,
     CommentListComponent,
     CommentComponent,
-    FeedPostComponent,
+    PostListItemComponent,
     PostVoterComponent,
     ReplyEditorComponent,
     RelativeTimePipe,
     ShortNumberPipe,
-    CommentSorterComponent,
+    CommentListSorterComponent,
+    SubjedditComponent,
+    PostListSorterComponent,
   ],
   imports: [
     BrowserModule,
