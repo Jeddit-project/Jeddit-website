@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import {Post, UserFeedService} from '../../services/user-feed.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,12 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class HomeComponent implements OnInit {
 
+  feedPosts: Post[];
+
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
-              private cookieService: CookieService) {
+              private cookieService: CookieService,
+              private userFeedService: UserFeedService) {
 
     if (!this.authenticationService.loggedIn()) {
       if (this.cookieService.check('Token')) {
@@ -24,5 +28,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userFeedService.fetchFeedList().subscribe(value => this.feedPosts = value);
   }
 }

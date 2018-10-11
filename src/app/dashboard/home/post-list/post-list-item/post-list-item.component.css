@@ -33,6 +33,7 @@
       border-radius: 100%;
       margin-right: 5px; }
     .right .origin .subjeddit-name {
+      color: black;
       font-size: 0.8em;
       font-weight: bold; }
     .right .origin .posted-by {

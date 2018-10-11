@@ -25,9 +25,7 @@ export class NavbarComponent implements OnInit {
   constructor(private navbarService: NavbarService,
               private router: Router,
               public authenticationService: AuthenticationService,
-              private cookieService: CookieService,
-              private http: HttpClient
-  ) {}
+              private cookieService: CookieService) {}
 
   subjeddits: Observable<ListSubjeddit[]>;
   location: Location = location;

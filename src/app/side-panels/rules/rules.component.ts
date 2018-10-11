@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Rule, SubjedditRulesService} from '../../../../services/subjeddit-rules.service';
+import {Rule, SubjedditRulesService} from '../../services/subjeddit-rules.service';
 import {Observable} from 'rxjs';
 
 @Component({

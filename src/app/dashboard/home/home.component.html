@@ -4,7 +4,7 @@
 
   <div class="left">
     <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
-    <app-user-feed #post_list class="user-feed"></app-user-feed>
+    <app-post-list #post_list [posts]="feedPosts" class="user-feed"></app-post-list>
   </div>
 
   <div>

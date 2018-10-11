@@ -1,19 +1,25 @@
-<div class="bg"></div>
+<div *ngIf="subjeddit">
+  <div class="bg"></div>
 
-<div class="header">
-  <div class="wrapper1">
-    <img class="logo" src="/assets/img/terraria-subjeddit-logo.png">
-    <span class="name">r/Terraria</span>
+  <div class="header">
+    <div class="wrapper1">
+      <img class="logo" src="/assets/img/terraria-subjeddit-logo.png">
+      <span class="name">r/{{ subjeddit.name }}</span>
+    </div>
   </div>
-</div>
 
-<div class="my-navbar">
-  <div class="wrapper2">
-    <a href="#" class="navbar-item">Posts</a>
+  <div class="my-navbar">
+    <div class="wrapper2">
+      <a class="navbar-item">Posts</a>
+    </div>
   </div>
-</div>
 
-<div class="content">
   <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
-  <app-user-feed #post_list></app-user-feed>
+
+  <div class="content d-flex flex-row justify-content-center">
+    <app-post-list #post_list [posts]="posts"></app-post-list>
+    <div class="cards">
+      <app-about [subjedditName]="subjeddit.name"></app-about>
+    </div>
+  </div>
 </div>

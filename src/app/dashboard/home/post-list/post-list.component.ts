@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Post, UserFeedService} from '../../../services/user-feed.service';
 
 @Component({
-  selector: 'app-user-feed',
+  selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
 
-  constructor(private userFeedService: UserFeedService) { }
+  constructor() { }
 
-  feedList: Post[];
+  @Input() posts: Post[];
 
   ngOnInit() {
-    this.userFeedService.fetchFeedList().subscribe(value => this.feedList = value);
   }
 }

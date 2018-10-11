@@ -24,7 +24,8 @@
     <div class="description">{{ info.description }}</div>
 
     <div class="buttons">
-      <button ngbButton class="btn btn-primary align-self-end">Subscribe</button>
+      <button (click)="subscribe()" *ngIf="!info.subscribed" ngbButton class="btn btn-primary align-self-end">Subscribe</button>
+      <button (click)="unsubscribe()" *ngIf="info.subscribed" ngbButton class="unsubscribe-btn btn btn-outline-primary align-self-end">Unsubscribe</button>
       <button ngbButton class="btn btn-primary align-self-end">Create Post</button>
     </div>
 

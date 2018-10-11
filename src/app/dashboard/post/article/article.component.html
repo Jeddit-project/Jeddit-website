@@ -8,8 +8,8 @@
 
       <div class="right d-flex flex-column">
         <div class="origin d-flex align-items-center">
-          <img class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
-          <div class="subjeddit-name">r/{{ userFeedService.selectedPost.subjeddit.name }}</div>
+          <img routerLink="/j/{{ userFeedService.selectedPost.subjeddit.name }}" class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
+          <a routerLink="/j/{{ userFeedService.selectedPost.subjeddit.name }}" class="subjeddit-name">r/{{ userFeedService.selectedPost.subjeddit.name }}</a>
           <div class="posted-by">Posted by <a href="">u/{{ userFeedService.selectedPost.poster.username }}</a> {{ userFeedService.selectedPost.created_at | relativeTime }}</div>
         </div>
 

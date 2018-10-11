@@ -33,7 +33,7 @@ export class PostListSorterComponent implements OnInit {
         }
       }
 
-      this.postList.feedList.sort(compareFun);
+      this.postList.posts.sort(compareFun);
     }
   }
 
