@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {createTokenHeader} from '../../../../../helpers/token';
-import {Post} from '../../../../../services/user-feed.service';
+import {Post} from '../../../../../services/post.service';
 import {AuthenticationService} from '../../../../../services/authentication.service';
 import {HttpClient} from '@angular/common/http';
 

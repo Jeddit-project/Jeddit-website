@@ -13,7 +13,6 @@ export class RelativeTimePipe implements PipeTransform {
     const sPerYear = sPerDay * 365;
 
     const current = Date.now() / 1000;
-    console.log('NOW ' + current);
     const elapsed = current - value;
 
     if (elapsed < sPerMinute) {

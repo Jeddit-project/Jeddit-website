@@ -6,6 +6,8 @@ import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {createTokenHeader} from '../../helpers/token';
+import {PostService} from '../../services/post.service';
+import {Location} from '@angular/common';
 
 
 class UserInfo {
@@ -25,10 +27,12 @@ export class NavbarComponent implements OnInit {
   constructor(private navbarService: NavbarService,
               private router: Router,
               public authenticationService: AuthenticationService,
-              private cookieService: CookieService) {}
+              private cookieService: CookieService,
+              private postService: PostService,
+              private locationService: Location) {}
 
   subjeddits: Observable<ListSubjeddit[]>;
-  location: Location = location;
+  location = location;
 
   ngOnInit() {
     this.subjeddits = this.navbarService.getSubscribedSubjeddits();
@@ -54,6 +58,12 @@ export class NavbarComponent implements OnInit {
     this.cookieService.delete('Token');
 
     this.router.navigate(['/login']);
+  }
+
+  home() {
+    this.postService.selectedPost = null;
+    this.router.navigate(['/']);
+    this.locationService.go('/');
   }
 
 }

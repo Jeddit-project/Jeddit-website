@@ -3,21 +3,21 @@
     <div class="publication d-flex">
 
       <div class="left">
-        <app-post-voter [post]="this.userFeedService.selectedPost"></app-post-voter>
+        <app-post-voter [post]="this.postService.selectedPost"></app-post-voter>
       </div>
 
       <div class="right d-flex flex-column">
         <div class="origin d-flex align-items-center">
-          <img routerLink="/j/{{ userFeedService.selectedPost.subjeddit.name }}" class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
-          <a routerLink="/j/{{ userFeedService.selectedPost.subjeddit.name }}" class="subjeddit-name">r/{{ userFeedService.selectedPost.subjeddit.name }}</a>
-          <div class="posted-by">Posted by <a href="">u/{{ userFeedService.selectedPost.poster.username }}</a> {{ userFeedService.selectedPost.created_at | relativeTime }}</div>
+          <img routerLink="/j/{{ postService.selectedPost.subjeddit.name }}" class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
+          <a routerLink="/j/{{ postService.selectedPost.subjeddit.name }}" class="subjeddit-name">r/{{ postService.selectedPost.subjeddit.name }}</a>
+          <div class="posted-by">Posted by <a href="">u/{{ postService.selectedPost.poster.username }}</a> {{ postService.selectedPost.created_at | relativeTime }}</div>
         </div>
 
-        <p class="title">{{ userFeedService.selectedPost.title }}</p>
-        <div class="content">{{ userFeedService.selectedPost.text }}</div>
+        <p class="title">{{ postService.selectedPost.title }}</p>
+        <div class="content">{{ postService.selectedPost.text }}</div>
 
         <div class="interactions d-flex">
-          <div class="comments"><i class="fas fa-comment-alt"></i>{{ userFeedService.selectedPost.comments }} Comments</div>
+          <div class="comments"><i class="fas fa-comment-alt"></i>{{ postService.selectedPost.comments }} Comments</div>
           <button ngbButton class="btn btn-light" href=""><i class="fas fa-share"></i>Share</button>
           <button ngbButton class="btn btn-light" href=""><i class="fas fa-bookmark"></i>Save</button>
         </div>

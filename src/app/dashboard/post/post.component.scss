@@ -1,15 +1,18 @@
-.bg {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  background-color: #2e2f2f;
-}
+[aria-hidden="true"] { display: none; }
+[aria-hidden="false"] { display: block; }
 
 .root {
+  background-color: #2e2f2f;
+  position: fixed;
+  overflow-y: scroll;
+
+  top: 57.5px;
+  bottom: 0;
+  //height: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
   .content {
     max-width: calc(100% - 320px);
     margin: 0 auto;

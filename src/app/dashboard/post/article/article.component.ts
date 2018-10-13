@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {UserFeedService} from '../../../services/user-feed.service';
+import {PostService} from '../../../services/post.service';
 import {Comment, CommentService} from '../../../services/comment.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {AuthenticationService, UserInfo} from '../../../services/authentication.service';
@@ -19,7 +19,7 @@ export class ArticleComponent implements OnInit {
   editor: ClassicEditor;
   @ViewChild('comment_btn') comment_btn: ElementRef;
 
-  constructor(public userFeedService: UserFeedService,
+  constructor(public postService: PostService,
               public commentService: CommentService,
               public authenticationService: AuthenticationService,
               private http: HttpClient) { }
@@ -38,16 +38,16 @@ export class ArticleComponent implements OnInit {
   }
 
   comment() {
-    this.http.post(`http://localhost:8080/api/post/${this.userFeedService.selectedPost.id}/comments`,
+    this.http.post(`http://localhost:8080/api/post/${this.postService.selectedPost.id}/comments`,
       {'text': this.editor.getData()},
       {headers: createTokenHeader(this.authenticationService)}).subscribe(value => {
         this.editor.setData('');
-        this.commentService.fetchComments(this.userFeedService.selectedPost.id);
+        this.commentService.fetchComments(this.postService.selectedPost.id);
     })
   }
 
 
   ngOnInit() {
-    this.commentService.fetchComments(this.userFeedService.selectedPost.id)
+    this.commentService.fetchComments(this.postService.selectedPost.id)
   }
 }

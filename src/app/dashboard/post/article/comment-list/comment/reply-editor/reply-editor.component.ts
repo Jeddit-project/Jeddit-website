@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {createTokenHeader} from '../../../../../../helpers/token';
-import {UserFeedService} from '../../../../../../services/user-feed.service';
+import {PostService} from '../../../../../../services/post.service';
 import {AuthenticationService} from '../../../../../../services/authentication.service';
 import {HttpClient} from '@angular/common/http';
 import {Comment, CommentService} from '../../../../../../services/comment.service';
@@ -22,7 +22,7 @@ export class ReplyEditorComponent implements OnInit {
 
   @ViewChild('comment_btn') comment_btn: ElementRef;
 
-  constructor(public userFeedService: UserFeedService,
+  constructor(public postService: PostService,
               public authenticationService: AuthenticationService,
               private http: HttpClient, private commentService: CommentService) { }
 
@@ -41,11 +41,11 @@ export class ReplyEditorComponent implements OnInit {
   }
 
   postComment() {
-    this.http.post(`http://localhost:8080/api/post/${this.userFeedService.selectedPost.id}/comments`,
+    this.http.post(`http://localhost:8080/api/post/${this.postService.selectedPost.id}/comments`,
       {'text': this.editor.getData(), 'parent': this.comment.id},
       {headers: createTokenHeader(this.authenticationService)}).subscribe(value => {
       this.editor.setData('');
-      this.commentService.fetchComments(this.userFeedService.selectedPost.id);
+      this.commentService.fetchComments(this.postService.selectedPost.id);
     })
   }
 

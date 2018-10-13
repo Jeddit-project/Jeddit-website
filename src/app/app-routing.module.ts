@@ -14,7 +14,7 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'j/:subjeddit', component: SubjedditComponent},
       {path: 'j/:subjeddit/:random_id/:title_id', component: PostComponent}
-    ]},
+  ]},
 ];
 
 @NgModule({

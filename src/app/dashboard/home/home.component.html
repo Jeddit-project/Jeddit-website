@@ -2,9 +2,12 @@
 
 <div class="root d-flex justify-content-center">
 
+  <app-post *ngIf="postService.selectedPost"></app-post>
+
   <div class="left">
     <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
-    <app-post-list #post_list [posts]="feedPosts" class="user-feed"></app-post-list>
+    <app-post-list #post_list [posts]="feedPosts" class="user-feed"
+    infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="onScroll()"></app-post-list>
   </div>
 
   <div>

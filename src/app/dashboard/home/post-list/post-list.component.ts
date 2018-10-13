@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Post, UserFeedService} from '../../../services/user-feed.service';
+import {Post, PostService} from '../../../services/post.service';
 
 @Component({
   selector: 'app-post-list',

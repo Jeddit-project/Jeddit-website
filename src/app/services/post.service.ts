@@ -38,13 +38,13 @@ export class Post {
 @Injectable({
   providedIn: 'root'
 })
-export class UserFeedService {
+export class PostService {
   selectedPost: Post;
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
   }
 
-  fetchFeedList(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:8080/api/feed', {headers: createTokenHeader(this.authenticationService)})
+  fetchFeedList(offset: number): Observable<Post[]> {
+    return this.http.get<Post[]>(`http://localhost:8080/api/feed?offset=${offset}`, {headers: createTokenHeader(this.authenticationService)})
   }
 }

@@ -1,4 +1,4 @@
-<div routerLink="/j/{{ post.subjeddit.name }}/{{ post.random_id }}/{{ post.title_id }}" (click)="selectPost(post)" class="post d-flex">
+<div (click)="selectPost(post)" class="post d-flex">
 
   <div class="left">
     <app-post-voter [post]="post"></app-post-voter>

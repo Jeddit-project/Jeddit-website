@@ -1,4 +1,7 @@
 <div *ngIf="subjeddit">
+
+  <app-post *ngIf="this.postService.selectedPost"></app-post>
+
   <div class="bg"></div>
 
   <div class="header">
@@ -17,7 +20,8 @@
   <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
 
   <div class="content d-flex flex-row justify-content-center">
-    <app-post-list #post_list [posts]="posts"></app-post-list>
+    <app-post-list #post_list [posts]="posts"
+    infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="onScroll()"></app-post-list>
     <div class="cards">
       <app-about [subjedditName]="subjeddit.name"></app-about>
     </div>

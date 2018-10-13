@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostListComponent} from '../post-list/post-list.component';
-import {Post} from '../../../services/user-feed.service';
+import {Post} from '../../../services/post.service';
 
 @Component({
   selector: 'app-post-list-sorter',

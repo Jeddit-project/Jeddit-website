@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services/authentication.service';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
-import {Post, UserFeedService} from '../../services/user-feed.service';
+import {Post, PostService} from '../../services/post.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +11,12 @@ import {Post, UserFeedService} from '../../services/user-feed.service';
 })
 export class HomeComponent implements OnInit {
 
-  feedPosts: Post[];
+  feedPosts: Post[] = [];
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService,
               private cookieService: CookieService,
-              private userFeedService: UserFeedService) {
+              public postService: PostService) {
 
     if (!this.authenticationService.loggedIn()) {
       if (this.cookieService.check('Token')) {
@@ -28,6 +28,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userFeedService.fetchFeedList().subscribe(value => this.feedPosts = value);
+    this.postService.fetchFeedList(this.feedPosts.length).subscribe(value => this.feedPosts.push(...value));
+    console.log('FEEDING');
+  }
+
+  onScroll(ev) {
+    console.log('scrolling');
+    this.postService.fetchFeedList(this.feedPosts.length).subscribe(value => this.feedPosts.push(...value));
   }
 }

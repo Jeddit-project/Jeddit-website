@@ -1,16 +1,15 @@
-<div class="root" (click)="goBack($event)">
-  <div class="bg"></div>
+<div #root class="root" (click)="goBack($event)">
+  <div *ngIf="postService.selectedPost" class="content">
 
-  <div *ngIf="userFeedService.selectedPost" class="content">
     <div class="top  d-flex flex-row justify-content-center">
 
       <div class="top-left  d-flex flex-row">
         <hr>
         <i class="fas fa-arrow-up"></i>
-        <div class="points">{{ userFeedService.selectedPost.points }}</div>
+        <div class="points">{{ postService.selectedPost.points }}</div>
         <i class="fas fa-arrow-down"></i>
         <hr>
-        <span class="top-title">{{ userFeedService.selectedPost.title }}</span>
+        <span class="top-title">{{ postService.selectedPost.title }}</span>
       </div>
 
       <div class="top-right  d-flex flex-row">
@@ -22,7 +21,7 @@
     <div class="bottom d-flex justify-content-center">
       <app-article class="article"></app-article>
       <div class="cards">
-        <app-about [subjedditName]="userFeedService.selectedPost.subjeddit.name"></app-about>
+        <app-about [subjedditName]="postService.selectedPost.subjeddit.name"></app-about>
         <!--<app-rules></app-rules>-->
       </div>
     </div>

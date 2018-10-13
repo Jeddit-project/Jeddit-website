@@ -29,6 +29,7 @@ import { ShortNumberPipe } from './pipes/short-number.pipe';
 import { CommentListSorterComponent } from './dashboard/post/article/comment-list-sorter/comment-list-sorter.component';
 import { SubjedditComponent } from './dashboard/subjeddit/subjeddit.component';
 import { PostListSorterComponent } from './dashboard/home/post-list-sorter/post-list-sorter.component';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { PostListSorterComponent } from './dashboard/home/post-list-sorter/post-
     FormsModule,
     HttpClientModule,
     CKEditorModule,
+    InfiniteScrollModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

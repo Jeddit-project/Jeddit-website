@@ -44,7 +44,6 @@
     font-size: 1.2em;
     font-weight: bold; }
   .right .interactions {
-    z-index: 5;
     margin-top: 10px; }
     .right .interactions button {
       color: #878a8c;

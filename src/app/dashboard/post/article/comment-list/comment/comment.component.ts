@@ -3,7 +3,7 @@ import {Comment} from '../../../../../services/comment.service';
 import {createTokenHeader} from '../../../../../helpers/token';
 import {HttpClient} from '@angular/common/http';
 import {AuthenticationService} from '../../../../../services/authentication.service';
-import {UserFeedService} from '../../../../../services/user-feed.service';
+import {PostService} from '../../../../../services/post.service';
 
 @Component({
   selector: 'app-comment',
@@ -19,7 +19,7 @@ export class CommentComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private authenticationService: AuthenticationService,
-              public userFeedService: UserFeedService) { }
+              public postService: PostService) { }
 
   ngOnInit() {
   }
