@@ -2,12 +2,12 @@
   display: inline-block;
   font-variant: all-small-caps;
   font-weight: bold;
-  margin-right: 10px;
-  margin-bottom: 20px; }
+  margin-right: 10px; }
 
 .dropdown-toggle {
   font-variant: all-small-caps;
-  font-weight: bold; }
+  font-weight: bold;
+  padding: 2px 7px 2px 7px; }
   .dropdown-toggle * {
     display: inline; }
   .dropdown-toggle:after {

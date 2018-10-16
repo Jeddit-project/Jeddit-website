@@ -5,7 +5,7 @@
   display: block; }
 
 .root {
-  background-color: #2e2f2f;
+  background-color: #000000CC;
   position: fixed;
   overflow-y: scroll;
   top: 57.5px;
@@ -52,8 +52,7 @@
           .root .content .top .top-right .close-btn [class*="fa fa-"] {
             margin-right: 5px; }
     .root .content .bottom {
-      padding: 15px;
-      padding-top: 50px;
+      padding: 70px 50px 50px 50px;
       background-color: #dae0e6; }
       .root .content .bottom a {
         display: block; }
@@ -63,8 +62,8 @@ hr {
   width: 1px;
   height: 15px; }
 
-.article {
-  margin-right: 25px; }
+.cards {
+  margin-left: 30px; }
 
 @media screen and (max-width: 1200px) {
   .cards {

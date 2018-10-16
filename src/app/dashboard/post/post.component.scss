@@ -2,7 +2,8 @@
 [aria-hidden="false"] { display: block; }
 
 .root {
-  background-color: #2e2f2f;
+  //background-color: #2e2f2f;
+  background-color: #000000CC;
   position: fixed;
   overflow-y: scroll;
 
@@ -74,8 +75,8 @@
     }
 
     .bottom {
-      padding: 15px;
-      padding-top: 50px;
+      padding: 70px 50px 50px 50px;
+      //padding-top: 50px;
       background-color: #dae0e6;
 
       a {
@@ -91,8 +92,8 @@ hr {
   height: 15px;
 }
 
-.article {
-  margin-right: 25px;
+.cards {
+  margin-left: 30px;
 }
 
 @media screen and (max-width: 1200px) {

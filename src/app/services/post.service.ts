@@ -44,7 +44,7 @@ export class PostService {
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
   }
 
-  fetchFeedList(offset: number): Observable<Post[]> {
-    return this.http.get<Post[]>(`http://localhost:8080/api/feed?offset=${offset}`, {headers: createTokenHeader(this.authenticationService)})
+  fetchFeedList(offset: number, sort_by: string = 'top'): Observable<Post[]> {
+    return this.http.get<Post[]>(`http://localhost:8080/api/feed?offset=${offset}&sort_by=${sort_by}`, {headers: createTokenHeader(this.authenticationService)})
   }
 }

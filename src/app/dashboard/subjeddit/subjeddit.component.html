@@ -17,10 +17,14 @@
     </div>
   </div>
 
-  <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
+  <div class="toolbar d-flex justify-content-center">
+    <div class="wrapper3">
+      <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
+    </div>
+  </div>
 
   <div class="content d-flex flex-row justify-content-center">
-    <app-post-list #post_list [posts]="posts"
+    <app-post-list #post_list [posts]="posts" [showSubjeddit]="false"
     infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="onScroll()"></app-post-list>
     <div class="cards">
       <app-about [subjedditName]="subjeddit.name"></app-about>

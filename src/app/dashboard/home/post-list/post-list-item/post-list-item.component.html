@@ -7,8 +7,11 @@
   <div class="right d-flex flex-column">
 
     <div class="origin d-flex align-items-center">
-      <img routerLink="/j/{{ post.subjeddit.name }}" class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
-      <a routerLink="/j/{{ post.subjeddit.name }}" class="subjeddit-name">r/{{ post.subjeddit.name }}</a>
+      <div class="subjeddit-info" *ngIf="showSubjeddit">
+        <img routerLink="/j/{{ post.subjeddit.name }}" class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
+        <a routerLink="/j/{{ post.subjeddit.name }}" class="subjeddit-name">r/{{ post.subjeddit.name }}</a>
+      </div>
+
       <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.created_at | relativeTime }}</div>
     </div>
 

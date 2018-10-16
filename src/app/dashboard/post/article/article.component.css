@@ -1,7 +1,6 @@
 .article {
   display: block;
   max-width: 890px;
-  margin-top: 15px;
   box-shadow: 0px 5px 10px 0px darkgray; }
   .article .publication {
     position: relative;

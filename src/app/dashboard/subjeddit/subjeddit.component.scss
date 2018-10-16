@@ -70,6 +70,27 @@
   }
 }
 
+.toolbar {
+  background-color: #ffffffCC;
+  //background-color: #ffffff;
+  padding: 10px;
+
+  .wrapper3 {
+    width: 900px;
+    max-width: 900px;
+  }
+}
+
+.content {
+  padding: 20px;
+}
+
 .cards {
-  margin-left: 10px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .cards {
+    display: none !important;
+  }
 }

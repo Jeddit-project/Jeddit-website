@@ -25,21 +25,23 @@
   box-shadow: 0px 2px 2px 0px darkgray; }
   .right .origin {
     margin-bottom: 10px; }
-    .right .origin .subjeddit-logo {
-      width: 20px;
-      height: 20px;
-      background-color: #0079d3;
-      border: 1px solid black;
-      border-radius: 100%;
-      margin-right: 5px; }
-    .right .origin .subjeddit-name {
-      color: black;
-      font-size: 0.8em;
-      font-weight: bold; }
+    .right .origin .subjeddit-info {
+      display: inline-flex;
+      margin-right: 10px; }
+      .right .origin .subjeddit-info .subjeddit-logo {
+        width: 20px;
+        height: 20px;
+        background-color: #0079d3;
+        border: 1px solid black;
+        border-radius: 100%;
+        margin-right: 5px; }
+      .right .origin .subjeddit-info .subjeddit-name {
+        color: black;
+        font-size: 0.8em;
+        font-weight: bold; }
     .right .origin .posted-by {
       font-size: 0.8em;
-      color: gray;
-      margin-left: 10px; }
+      color: gray; }
   .right .title {
     font-size: 1.2em;
     font-weight: bold; }

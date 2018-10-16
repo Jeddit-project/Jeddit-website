@@ -6,6 +6,7 @@ import {AuthenticationService, UserInfo} from '../../../services/authentication.
 import {HttpClient} from '@angular/common/http';
 import {createTokenHeader} from '../../../helpers/token';
 import {CommentListComponent} from './comment-list/comment-list.component';
+import {CommentListSorterComponent} from './comment-list-sorter/comment-list-sorter.component';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class ArticleComponent implements OnInit {
   editorClass = ClassicEditor;
   editor: ClassicEditor;
   @ViewChild('comment_btn') comment_btn: ElementRef;
+  @ViewChild('comment_sorter') comment_sorter: CommentListSorterComponent;
+  @ViewChild('comment_list') comment_list: CommentListComponent;
 
   constructor(public postService: PostService,
               public commentService: CommentService,
@@ -37,17 +40,16 @@ export class ArticleComponent implements OnInit {
     this.comment_btn.nativeElement.disabled = isWhitespace;
   }
 
+  ngOnInit() {
+    this.comment_list.fetchComments()
+  }
+
   comment() {
     this.http.post(`http://localhost:8080/api/post/${this.postService.selectedPost.id}/comments`,
       {'text': this.editor.getData()},
       {headers: createTokenHeader(this.authenticationService)}).subscribe(value => {
         this.editor.setData('');
-        this.commentService.fetchComments(this.postService.selectedPost.id);
+        this.comment_list.fetchComments()
     })
-  }
-
-
-  ngOnInit() {
-    this.commentService.fetchComments(this.postService.selectedPost.id)
   }
 }

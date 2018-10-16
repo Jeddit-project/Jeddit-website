@@ -36,7 +36,7 @@
     </div>
 
     <div class="bottom">
-      <app-comment-sorter [commentList]="comment_list"></app-comment-sorter>
+      <app-comment-sorter #comment_sorter [commentList]="comment_list"></app-comment-sorter>
       <app-comment-list #comment_list [comments]="commentService.comments" id="comments"></app-comment-list>
     </div>
 

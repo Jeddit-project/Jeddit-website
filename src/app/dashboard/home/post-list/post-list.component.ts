@@ -12,6 +12,7 @@ export class PostListComponent implements OnInit {
   constructor() { }
 
   @Input() posts: Post[];
+  @Input() showSubjeddit: boolean;
 
   ngOnInit() {
   }

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Post, PostService} from '../../../../services/post.service';
 import {HttpClient} from '@angular/common/http';
 import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,13 +12,14 @@ import {Location} from '@angular/common';
 })
 export class PostListItemComponent implements OnInit {
   @Input() post: Post;
+  @Input() showSubjeddit: boolean;
 
   constructor(private postService: PostService,
               private http: HttpClient,
-              private location: Location) { }
+              private location: Location,
+              private router: Router) { }
 
   ngOnInit() {
-
     // function toSnakeCase(string: String): String {
     //   let s = string.replace(/[^\w\s]/g, '');
     //   s = s.replace(/\s+/g, ' ');
@@ -52,7 +54,9 @@ export class PostListItemComponent implements OnInit {
   }
 
   selectPost() {
+    // sort_by workaround, post snapshots dashboard url with previous sort_by, forcing 'top' by default
+    this.location.go(`/j/${this.post.subjeddit.name }/${this.post.random_id }/${this.post.title_id }?sort_by=top`);
     this.postService.selectedPost = this.post;
-    this.location.go(`/j/${this.post.subjeddit.name }/${this.post.random_id }/${this.post.title_id }`)
+    // this.router.navigate()
   }
 }

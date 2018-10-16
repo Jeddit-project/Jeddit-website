@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AuthenticationService} from './authentication.service';
 import {createTokenHeader} from '../helpers/token';
 import {CommentListSorterComponent} from '../dashboard/post/article/comment-list-sorter/comment-list-sorter.component';
+import {Observable} from 'rxjs';
 
 
 class User {
@@ -31,13 +32,8 @@ export class CommentService {
 
   comments: [Comment];
 
-  fetchComments(postId: number) {
-    this.http.get<[Comment]>(`http://localhost:8080/api/post/${postId}/comments`,
-      this.authenticationService.token != null ? {headers: createTokenHeader(this.authenticationService)} : {}).subscribe(value => {
-
-        // Sort comments by highest points(TOP)
-        CommentListSorterComponent.recursivelySortComments(value, (a, b) => b.points - a.points);
-        this.comments = value;
-    })
+  fetchComments(postId: number): Observable<[Comment]> {
+    return this.http.get<[Comment]>(`http://localhost:8080/api/post/${postId}/comments`,
+      this.authenticationService.token != null ? {headers: createTokenHeader(this.authenticationService)} : {})
   }
 }

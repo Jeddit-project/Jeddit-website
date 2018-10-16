@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Location} from '@angular/common';
 import {Post, PostService} from '../../services/post.service';
 import {ActivatedRoute} from '@angular/router';
@@ -43,6 +43,16 @@ export class PostComponent implements OnInit, OnDestroy {
 
   goBack(event: Event) {
     if (event.target === event.currentTarget) {
+      this.postService.selectedPost = null;
+      this.location.back();
+    }
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  goBackOnEscape(event: KeyboardEvent) {
+    console.log(event);
+
+    if (event.key === 'Escape') {
       this.postService.selectedPost = null;
       this.location.back();
     }
