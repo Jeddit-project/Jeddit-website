@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PostListComponent} from '../post-list/post-list.component';
-import {Post} from '../../../services/post.service';
 import {Location} from '@angular/common';
-import {ActivatedRoute, Router} from '@angular/router';
 import {updateQueryStringParameter} from '../../../helpers/url';
+import {BehaviorSubject} from 'rxjs';
 
 
 enum SortingType {
@@ -20,7 +19,7 @@ enum SortingType {
 export class PostListSorterComponent implements OnInit {
 
   @Input() postList: PostListComponent;
-  sortingType: string;
+  sortingType: BehaviorSubject<string>;
 
   constructor(private locationService: Location) {
 
@@ -28,10 +27,10 @@ export class PostListSorterComponent implements OnInit {
     const type = urlParams.get('sort_by');
 
     if (type != null && Object.values(SortingType).includes(type)) {
-      this.sortingType = type
+      this.sortingType = new BehaviorSubject<string>(type)
     } else {
-      this.sortingType = SortingType.TOP;
-      this.locationService.replaceState(updateQueryStringParameter(this.locationService.path(), 'sort_by', this.sortingType))
+      this.sortingType = new BehaviorSubject<string>(SortingType.TOP);
+      this.locationService.replaceState(updateQueryStringParameter(this.locationService.path(), 'sort_by', this.sortingType.getValue()))
     }
   }
 
@@ -39,23 +38,9 @@ export class PostListSorterComponent implements OnInit {
   }
 
   sortBy(type: string) {
-    if (type !== this.sortingType) {
-      this.sortingType = type;
-
-      let compareFun: (a: Post, b: Post) => number;
-      switch (this.sortingType) {
-        case SortingType.TOP: {
-          compareFun = (a: Post, b: Post) => b.points - a.points;
-          break;
-        }
-        case SortingType.NEW: {
-          compareFun = (a: Post, b: Post) => b.created_at - a.created_at;
-          break;
-        }
-      }
-
-      this.postList.posts.sort(compareFun);
-      this.locationService.replaceState(updateQueryStringParameter(this.locationService.path(), 'sort_by', this.sortingType))
+    if (type !== this.sortingType.getValue()) {
+      this.sortingType.next(type);
+      this.locationService.replaceState(updateQueryStringParameter(this.locationService.path(), 'sort_by', this.sortingType.getValue()))
     }
   }
 

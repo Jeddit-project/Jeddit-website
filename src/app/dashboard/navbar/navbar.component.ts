@@ -4,10 +4,9 @@ import {ListSubjeddit, NavbarService} from '../../services/navbar.service';
 import {AuthenticationService} from '../../services/authentication.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import {createTokenHeader} from '../../helpers/token';
 import {PostService} from '../../services/post.service';
 import {Location} from '@angular/common';
+import * as $ from 'jquery/dist/jquery.min.js';
 
 
 class UserInfo {
@@ -64,6 +63,10 @@ export class NavbarComponent implements OnInit {
     this.postService.selectedPost = null;
     this.router.navigate(['/']);
     this.locationService.go('/');
+
+    $('html, body').animate({
+      scrollTop: 0
+    }, 500);
   }
 
 }

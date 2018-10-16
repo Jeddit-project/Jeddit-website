@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {Post, PostService} from '../../services/post.service';
 import {PostListSorterComponent} from './post-list-sorter/post-list-sorter.component';
+import {PostListComponent} from './post-list/post-list.component';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ import {PostListSorterComponent} from './post-list-sorter/post-list-sorter.compo
 export class HomeComponent implements OnInit {
 
   @ViewChild('post_sorter') postSorter: PostListSorterComponent;
+  @ViewChild('post_list') postList: PostListComponent;
 
   feedPosts: Post[] = [];
 
@@ -31,10 +33,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.onScroll()
+    this.postSorter.sortingType.subscribe(value => {
+      this.postService.fetchFeedList(0, this.postSorter.sortingType.getValue())
+        .subscribe(v => this.feedPosts = v);
+    });
   }
 
   onScroll() {
-    this.postService.fetchFeedList(this.feedPosts.length, this.postSorter.sortingType).subscribe(value => this.feedPosts.push(...value));
+    this.postService.fetchFeedList(this.feedPosts.length, this.postSorter.sortingType.getValue())
+      .subscribe(value => this.feedPosts.push(...value));
   }
 }
