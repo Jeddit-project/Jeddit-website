@@ -1,11 +1,8 @@
-<div *ngIf="subjeddit">
-
-  <app-post *ngIf="this.postService.selectedPost"></app-post>
-
+<div>
   <div class="bg"></div>
 
   <div class="header">
-    <div class="wrapper1">
+    <div *ngIf="subjeddit" class="wrapper1">
       <img class="logo" src="/assets/img/terraria-subjeddit-logo.png">
       <span class="name">r/{{ subjeddit.name }}</span>
     </div>
@@ -17,9 +14,11 @@
     </div>
   </div>
 
+  <app-post *ngIf="this.postService.selectedPost"></app-post>
+
   <div class="toolbar d-flex justify-content-center">
     <div class="wrapper3">
-      <app-post-list-sorter [postList]="post_list"></app-post-list-sorter>
+      <app-post-list-sorter #post_sorter></app-post-list-sorter>
     </div>
   </div>
 
@@ -27,7 +26,7 @@
     <app-post-list #post_list [posts]="posts" [showSubjeddit]="false"
     infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="onScroll()"></app-post-list>
     <div class="cards">
-      <app-about [subjedditName]="subjeddit.name"></app-about>
+      <app-about *ngIf="subjeddit" [subjedditName]="subjeddit.name"></app-about>
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@
         <a routerLink="/j/{{ post.subjeddit.name }}" class="subjeddit-name">r/{{ post.subjeddit.name }}</a>
       </div>
 
-      <div class="posted-by">Posted by <a href="">u/{{ post.poster.username }}</a> {{ post.created_at | relativeTime }}</div>
+      <div class="posted-by">Posted by <a routerLink="/user/{{ post.poster.username }}">u/{{ post.poster.username }}</a> {{ post.created_at | relativeTime }}</div>
     </div>
 
     <p class="title">{{ post.title }}</p>

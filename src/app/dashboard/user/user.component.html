@@ -1,0 +1,28 @@
+<div class="root">
+  <div class="bg"></div>
+
+  <div class="my-navbar">
+    <div class="wrapper1">
+      <a routerLink="/user/{{ username }}/posts" routerLinkActive="is-active" class="navbar-item">Posts</a>
+      <a routerLink="/user/{{ username }}/comments" routerLinkActive="is-active" class="navbar-item">Comments</a>
+    </div>
+  </div>
+
+  <div class="toolbar d-flex justify-content-center">
+    <div class="wrapper2">
+      <app-post-list-sorter #post_sorter></app-post-list-sorter>
+    </div>
+  </div>
+
+  <app-post *ngIf="this.postService.selectedPost"></app-post>
+
+  <div class="content d-flex flex-row justify-content-center">
+    <router-outlet></router-outlet>
+
+    <!--<app-post-list #post_list [posts]="posts" [showSubjeddit]="false"-->
+                   <!--infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="onScroll()"></app-post-list>-->
+    <!--<div class="cards">-->
+      <!--<app-about *ngIf="subjeddit" [subjedditName]="subjeddit.name"></app-about>-->
+    <!--</div>-->
+  </div>
+</div>

@@ -42,7 +42,7 @@ export class ReplyEditorComponent implements OnInit {
 
   postComment() {
     this.http.post(`http://localhost:8080/api/post/${this.postService.selectedPost.id}/comments`,
-      {'text': this.editor.getData(), 'parent': this.comment.id},
+      {'text': this.editor.getData(), 'parent_comment_id': this.comment.id},
       {headers: createTokenHeader(this.authenticationService)}).subscribe(value => {
       this.editor.setData('');
       this.commentService.fetchComments(this.postService.selectedPost.id);

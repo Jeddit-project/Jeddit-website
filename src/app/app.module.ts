@@ -30,6 +30,11 @@ import { CommentListSorterComponent } from './dashboard/post/article/comment-lis
 import { SubjedditComponent } from './dashboard/subjeddit/subjeddit.component';
 import { PostListSorterComponent } from './dashboard/home/post-list-sorter/post-list-sorter.component';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { UserComponent } from './dashboard/user/user.component';
+import { PostsTabComponent } from './dashboard/user/posts-tab/posts-tab.component';
+import { CommentsTabComponent } from './dashboard/user/comments-tab/comments-tab.component';
+import { UserCommentListComponent } from './dashboard/user/comments-tab/user-comment-list/user-comment-list.component';
+import { UserCommentComponent } from './dashboard/user/comments-tab/user-comment-list/user-comment/user-comment.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +60,11 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     CommentListSorterComponent,
     SubjedditComponent,
     PostListSorterComponent,
+    UserComponent,
+    PostsTabComponent,
+    CommentsTabComponent,
+    UserCommentListComponent,
+    UserCommentComponent,
   ],
   imports: [
     BrowserModule,

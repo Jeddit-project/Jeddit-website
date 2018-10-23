@@ -10,7 +10,7 @@
         <div class="origin d-flex align-items-center">
           <img routerLink="/j/{{ postService.selectedPost.subjeddit.name }}" class="subjeddit-logo" src="/assets/img/terraria-subjeddit-logo.png">
           <a routerLink="/j/{{ postService.selectedPost.subjeddit.name }}" class="subjeddit-name">r/{{ postService.selectedPost.subjeddit.name }}</a>
-          <div class="posted-by">Posted by <a href="">u/{{ postService.selectedPost.poster.username }}</a> {{ postService.selectedPost.created_at | relativeTime }}</div>
+          <div class="posted-by">Posted by <a routerLink="/user/{{ postService.selectedPost.poster.username }}">u/{{ postService.selectedPost.poster.username }}</a> {{ postService.selectedPost.created_at | relativeTime }}</div>
         </div>
 
         <p class="title">{{ postService.selectedPost.title }}</p>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="editor-wrapper">
-          <span *ngIf="authenticationService.userInfo | async as userInfo" class="comment-as">Comment as <a href="#">{{ userInfo.username }}</a></span>
+          <span *ngIf="authenticationService.userInfo | async as userInfo" class="comment-as">Comment as <a routerLink="/user/{{ userInfo.username }}">{{ userInfo.username }}</a></span>
 
           <div class="editor">
             <ckeditor #editor [editor]="editorClass" (ready)="onReady($event)" (change)="onChange()"></ckeditor>

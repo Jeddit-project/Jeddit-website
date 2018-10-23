@@ -18,7 +18,6 @@ enum SortingType {
 })
 export class PostListSorterComponent implements OnInit {
 
-  @Input() postList: PostListComponent;
   sortingType: BehaviorSubject<string>;
 
   constructor(private locationService: Location) {

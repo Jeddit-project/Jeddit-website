@@ -1,0 +1,27 @@
+<div class="my-card">
+
+  <div class="top flex-row">
+    <span class="icon">
+      <i class="fas fa-comment-alt"></i>
+    </span>
+
+    <span class="top-right">
+      <a routerLink="#">{{ commentGroup.user.username }}</a>
+      commented on <span class="post">{{ commentGroup.post.title }}</span> ·
+      <span class="subjeddit">j/{{ commentGroup.post.subjeddit.name }}</span> ·
+      Posted by <a routerLink="#">u/{{ commentGroup.post.poster.username }}</a>
+    </span>
+  </div>
+
+  <div class="bottom d-flex flex-row align-items-stretch">
+    <div class="left">
+      <div class="dotted-line"></div>
+    </div>
+
+    <div class="right d-flex flex-column">
+      <span>{{ commentGroup.text }}</span>
+      <span>{{ commentGroup.points }}</span>
+    </div>
+  </div>
+
+</div>

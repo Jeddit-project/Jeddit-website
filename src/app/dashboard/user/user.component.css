@@ -1,0 +1,50 @@
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #dae0e6; }
+
+.my-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: white; }
+  .my-navbar .wrapper1 {
+    width: 1200px;
+    max-width: 1200px; }
+    .my-navbar .wrapper1 .navbar-item {
+      display: inline-block;
+      line-height: 32px;
+      padding: 4px 8px 1px;
+      margin-right: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #0079d3;
+      text-decoration: none;
+      font-variant: all-small-caps; }
+    .my-navbar .wrapper1 .is-active {
+      border-bottom: 3px solid #0079d3; }
+
+.toolbar {
+  background-color: #ffffffCC;
+  padding: 10px; }
+  .toolbar .wrapper2 {
+    width: 900px;
+    max-width: 900px; }
+
+.content {
+  padding: 20px; }
+
+.cards {
+  margin-left: 30px; }
+
+@media screen and (max-width: 1000px) {
+  .cards {
+    display: none !important; } }
+
+/*# sourceMappingURL=user.component.css.map */

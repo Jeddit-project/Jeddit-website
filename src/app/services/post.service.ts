@@ -47,4 +47,12 @@ export class PostService {
   fetchFeedList(offset: number, sort_by: string = 'top'): Observable<Post[]> {
     return this.http.get<Post[]>(`http://localhost:8080/api/feed?offset=${offset}&sort_by=${sort_by}`, {headers: createTokenHeader(this.authenticationService)})
   }
+
+  fetchSubjedditPosts(subjeddit: string, offset: number, sort_by: string = 'top') {
+    return this.http.get<Post[]>(`http://localhost:8080/api/subjeddit/${subjeddit}/posts?offset=${offset}&sort_by=${sort_by}`, {headers: createTokenHeader(this.authenticationService)});
+  }
+
+  fetchUserPosts(username: string, offset: number, sort_by: string = 'top') {
+    return this.http.get<[Post]>(`http://localhost:8080/api/user/${username}/posts?offset=${offset}&sort_by=${sort_by}`, {headers: createTokenHeader(this.authenticationService)});
+  }
 }

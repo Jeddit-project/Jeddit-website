@@ -1,0 +1,55 @@
+.my-card {
+  transition: box-shadow 0.1s;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  margin-bottom: 15px;
+
+  box-shadow: 0px 2px 2px 0px darkgray;
+
+  &:hover {
+    box-shadow: 0px 4px 8px 0px darkgray;
+  }
+
+  .top {
+    z-index: 1;
+
+    padding: 10px;
+
+    background-color: white;
+    color: #878a8c;
+    box-shadow: 0px 2px 2px 0px darkgray;
+
+    .top-right {
+      font-size: 0.8em;
+
+      .post {
+        color: black;
+      }
+
+      .subjeddit {
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    .icon {
+      margin-right: 10px;
+    }
+  }
+
+  .bottom {
+    padding: 10px;
+    background-color: #ffffffCC;
+
+    .left {
+      height: 100%;
+      .dotted-line {
+        height: 100%;
+        border-left: black dashed medium; // Make the line appear.
+      }
+    }
+  }
+
+}

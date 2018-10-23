@@ -14,7 +14,6 @@ import {PostListComponent} from './post-list/post-list.component';
 export class HomeComponent implements OnInit {
 
   @ViewChild('post_sorter') postSorter: PostListSorterComponent;
-  @ViewChild('post_list') postList: PostListComponent;
 
   feedPosts: Post[] = [];
 
@@ -34,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.postSorter.sortingType.subscribe(value => {
-      this.postService.fetchFeedList(0, this.postSorter.sortingType.getValue())
+      this.postService.fetchFeedList(0, value)
         .subscribe(v => this.feedPosts = v);
     });
   }
